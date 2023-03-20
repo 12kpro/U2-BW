@@ -1,0 +1,282 @@
+@import "./custom/bootstrap";
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* stile card aggiuntivo */
+.card {
+  text-align: center;
+  border: 1px solid $primary;
+  transition: box-shadow 0.3s;
+  &:hover {
+    transition: box-shadow 0.3s;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+    & .product-links {
+      opacity: 1;
+      & li {
+        opacity: 1;
+        transform: translateY(0);
+        &:nth-child(2) {
+          transition: all 0.3s ease 0.15s;
+        }
+      }
+    }
+  }
+  & .product-image {
+    position: relative;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+  & .brand-label {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  & .product-links {
+    padding: unset;
+    margin: unset;
+    list-style: none;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    transition: all 0.3s ease 0s;
+    & li {
+      margin-top: 5px;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease 0s;
+      & a {
+        color: #fff;
+        background-color: #00b894;
+        text-decoration: none;
+        font-size: 14px;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+        padding: 5px 8px;
+        display: block;
+        opacity: 0.9;
+        transition: all 0.3s ease 0s;
+        animation: bg-animate 5s infinite linear;
+        &:hover {
+          color: #fff;
+          box-shadow: 0 0 0 1px #fff inset;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  & .product-content {
+    padding: 15px 0 5px;
+  }
+  & .price {
+    color: #1abc9c;
+    font-size: 20px;
+    font-weight: 400;
+    animation: color-animate 5s infinite linear;
+  }
+  & .title {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 0 10px 14px;
+    margin: 0 0 7px;
+    border-bottom: 1px solid #dfe5e9;
+    & a {
+      display: block;
+      height: 2rem;
+      color: #000;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        animation: color-animate 5s infinite linear;
+      }
+    }
+  }
+}
+/* stile elemento brand*/
+.brand-label {
+  opacity: 0.9;
+  color: #fff;
+  background: #1abc9c;
+  font-size: 13px;
+  text-transform: capitalize;
+  line-height: 35px;
+  padding-inline: 10px;
+  animation: bg-animate 5s infinite linear;
+}
+/* animazione campanella di notifica*/
+.ringing {
+  animation: ring 4s 0.7s ease-in-out infinite;
+}
+/* animazione colore testo*/
+@keyframes color-animate {
+  0% {
+    color: #00b894;
+  }
+  20% {
+    color: #00cec9;
+  }
+  40% {
+    color: #0984e3;
+  }
+  60% {
+    color: #6c5ce7;
+  }
+  80% {
+    color: #e84393;
+  }
+  100% {
+    color: #00b894;
+  }
+}
+/* animazione colore sfondo*/
+@keyframes bg-animate {
+  0% {
+    background-color: #00b894;
+  }
+  20% {
+    background-color: #00cec9;
+  }
+  40% {
+    background-color: #0984e3;
+  }
+  60% {
+    background-color: #6c5ce7;
+  }
+  80% {
+    background-color: #e84393;
+  }
+  100% {
+    background-color: #00b894;
+  }
+}
+
+/*animazione camanella*/
+@keyframes ring {
+  0% {
+    transform: rotate(0);
+  }
+  1% {
+    transform: rotate(30deg);
+  }
+  3% {
+    transform: rotate(-28deg);
+  }
+  5% {
+    transform: rotate(34deg);
+  }
+  7% {
+    transform: rotate(-32deg);
+  }
+  9% {
+    transform: rotate(30deg);
+  }
+  11% {
+    transform: rotate(-28deg);
+  }
+  13% {
+    transform: rotate(26deg);
+  }
+  15% {
+    transform: rotate(-24deg);
+  }
+  17% {
+    transform: rotate(22deg);
+  }
+  19% {
+    transform: rotate(-20deg);
+  }
+  21% {
+    transform: rotate(18deg);
+  }
+  23% {
+    transform: rotate(-16deg);
+  }
+  25% {
+    transform: rotate(14deg);
+  }
+  27% {
+    transform: rotate(-12deg);
+  }
+  29% {
+    transform: rotate(10deg);
+  }
+  31% {
+    transform: rotate(-8deg);
+  }
+  33% {
+    transform: rotate(6deg);
+  }
+  35% {
+    transform: rotate(-4deg);
+  }
+  37% {
+    transform: rotate(2deg);
+  }
+  39% {
+    transform: rotate(-1deg);
+  }
+  41% {
+    transform: rotate(1deg);
+  }
+
+  43% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #0984e3;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 18px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 18px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 18px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 36px;
+    height: 36px;
+    opacity: 0;
+  }
+}
