@@ -17,13 +17,12 @@
 
 // Layout & components
 @import "../bs/root";
-@import "variables-blue";
 @import "../bs/reboot";
 @import "../bs/type";
 @import "../bs/images";
 @import "../bs/containers";
 @import "../bs/grid";
-//@import "tables";
+@import "../bs/tables";
 @import "../bs/forms";
 @import "../bs/buttons";
 @import "../bs/transitions";
@@ -35,13 +34,13 @@
 //@import "../bs/accordion";
 //@import "../bs/breadcrumb";
 //@import "../bs/pagination";
-//@import "../bs/badge";
+@import "../bs/badge";
 //@import "../bs/alert";
 //@import "../bs/progress";
 //@import "../bs/list-group";
 @import "../bs/close";
-@import "../bs/toasts";
-@import "../bs/modal";
+//@import "../bs/toasts";
+//@import "../bs/modal";
 //@import "../bs/tooltip";
 //@import "../bs/popover";
 //@import "../bs/carousel";
