@@ -8,8 +8,8 @@ class CustomMsg {
     { code: "POST", txt: "created" },
     { code: "PUT", txt: "updated" },
     { code: "DELETE", txt: "deleted" },
-    { code: "EMPTY", txt: "no data retrived" }
-    { code: "PIERLUIGI", txt: "Ciao pier" }
+    { code: "EMPTY", txt: "no data retrived" },
+    { code: "PIERLUIGI", txt: "Ciao pier" },
   ];
   static getTxt(code) {
     const msg = this.messages.find((item) => item.code === code);
@@ -49,9 +49,9 @@ const resp = async (url, method, body) => {
     method,
     headers: {
       //      Authorization: AUHT_KEY,
-      "Content-Type": "application/json; charset=utf-8" //fetch imposta di default application/json ????
+      "Content-Type": "application/json; charset=utf-8", //fetch imposta di default application/json ????
     },
-    body
+    body,
   };
   try {
     const response = await fetch(url, params);
@@ -64,7 +64,7 @@ const resp = async (url, method, body) => {
     }
     throw new ServerError(fetchId, response.status, response.statusText); // altrimenti genero un errore
   } catch (error) {
-    console.log(error.id, error.status,error.statusMsg);
+    console.log(error.id, error.status, error.statusMsg);
     return [];
   } finally {
   }
