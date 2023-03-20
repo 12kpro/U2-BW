@@ -1,0 +1,12 @@
+.xsmall {
+  font-size: $xsmall-font-size;
+}
+button {
+  color: $secondary-text;
+  & svg {
+    fill: currentcolor;
+  }
+  &:hover {
+    color: $white;
+  }
+}
