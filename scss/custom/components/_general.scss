@@ -1,7 +1,8 @@
 .xsmall {
   font-size: $xsmall-font-size;
 }
-button {
+button,
+a {
   color: $secondary-text;
   & svg {
     fill: currentcolor;
