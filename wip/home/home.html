@@ -47,14 +47,27 @@
           </ul>
           <ul class="nav">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end"">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <button class="tastoUtente btn bg-black text-white dropdown-toggle  " type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <img src= "../../assets/imgs/main/image-1.jpg" width="20px" height="20px"
+                            class="rounded-circle" alt="...">
+                        Pierluigi Marzo fs0123A
+                    </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class=" dropdown-item " href="#">
+                      Account
+                      <span class="ml-5"><i class="bi bi-arrow-up-right-square"></i></span>
+                  </a>
+              </li>
+              <li><a class=" dropdown-item " href="#">Profilo</a></li>
+              <li><a class=" dropdown-item " href="#"> Effettua l'upgrade a premium
+                      <span><i class="bi bi-arrow-up-right-square"></i></span></a>
+              </li>
+              <li><a class=" dropdown-item " href="#">Impostazioni</a></li>
+              <li>
+                  <hr class="dropdown-divider">
+              </li>
+              <li><a class=" dropdown-item " href="#">Esci</a></li>
               </ul>
             </li>
           </ul>
@@ -371,6 +384,39 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+
+    bozza di js per la creazione della card principale
+
+    <!-- <script>
+      const createCardBig = (title, img, artist, id, album) => {
+  const cardBig = document.querySelector("#");
+  cardBig.innerHTML = `<div class="row g-0">
+    <div class="col-2">
+      <img src="${img}" class="img-fluid" alt="${title}" />
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <h6 class="card-title fw-bold text-truncate"><a class="text-decoration-none text-light" href=album.html?id=${id}>${album}</a></h6>
+        <h1 class="card-title fw-bold text-truncate">${title}</h1>
+        <p class="card-text"><a class="text-decoration-none text-light fw-bold" href=artist.html?id=${id}>${artist}</a></p>
+        <p class="card-text fw-bold">Ascolta il nuovo singolo di <a class="text-decoration-none text-light" href=artist.html?id=${id}>${artist}</a>!</p>
+        <div class="d-flex gap-2">
+          <button style="background-color: #1ed760" class="btn px-4 py-2 rounded-pill fw-bold">Play</button>
+          <button
+            style="background-color: #2125297c"
+            class="btn px-4 py-2 rounded-pill fw-bold text-light border border-1 border-light"
+          >
+            Salva
+          </button>
+          <button class="btn rounded-pill fw-bold text-light">
+            <i class="bi bi-three-dots text-secondary fs-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+};
+    </script> -->
   </body>
 </html>
 
