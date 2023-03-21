@@ -9,6 +9,7 @@ a {
   color: $secondary-text;
   & svg {
     fill: currentcolor;
+    pointer-events: none;
   }
   &:hover {
     color: $white;
