@@ -56,7 +56,62 @@
     }
   }
   &__progress {
+    .progress {
+      background-color: $bg-progress;
+    }
   }
   &__options {
+    &__vol {
+      flex-basis: 125px;
+      input[type="range"] {
+        --bg-range: linear-gradient(
+          to right,
+          var(--bs-light),
+          var(--bs-light) 0%,
+          var(--bs-progress) 0%,
+          var(--bs-progress) 100%
+        );
+        --bg-range-hover: linear-gradient(
+          to right,
+          var(--bs-success),
+          var(--bs-success) 0%,
+          var(--bs-progress) 0%,
+          var(--bs-progress) 100%
+        );
+        width: 93px;
+        flex-shrink: 1;
+        flex-grow: 1;
+        appearance: none;
+        height: 0.25rem;
+        border-radius: 6px;
+        background: var(--bg-range);
+        outline: none;
+        padding: 0;
+        margin: 0;
+        //&::-moz-range-thumb
+        &::-webkit-slider-thumb {
+          display: none;
+        }
+        &:hover {
+          background: var(--bg-range-hover);
+          //&::-moz-range-thumb
+          &::-webkit-slider-thumb {
+            display: block;
+            appearance: none;
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 50%;
+            background: $light;
+            cursor: pointer;
+            -webkit-transition: background 0.15s ease-in-out;
+            transition: background 0.15s ease-in-out;
+          }
+        }
+      }
+    }
+    button {
+      &:last-child {
+      }
+    }
   }
 }
