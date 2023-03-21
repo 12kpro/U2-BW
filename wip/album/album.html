@@ -15,11 +15,11 @@
     />
   </head>
   <body>
-    <div class="container-fluid hero-image2">
+    <div class="main container-fluid position-absolute">
       <nav class="navbar navbar-expand-lg">
-        <div class="container d-flex justify-content-between">
+        <div class="container-fluid d-flex justify-content-between">
           <div class="">
-            <button class="rounded-circle bg-dark">
+            <button class="arrow rounded-circle border-0 px-2">
               <svg
                 role="img"
                 height="16"
@@ -34,7 +34,7 @@
                 ></path>
               </svg>
             </button>
-            <button class="rounded-circle bg-dark">
+            <button class="arrow rounded-circle border-0 px-2">
               <svg
                 role="img"
                 height="16"
@@ -90,22 +90,31 @@
           </div>
         </div>
       </nav>
-      <div class="grid">
-        <div class="row my-5">
-          <div class="col">
-            <div class="hero-text">
-              <img src="" alt="" />
-              <p class="fs-5">ALBUM</p>
-              <p class="display-1">Nome album</p>
-              <p class="fs-5"><img src="" alt="" /> Proprietà album</p>
+      <div class="grid position-relative">
+        <div class="row my-5 gap-5">
+          <div class="col-2">
+            <img src="/assets/imgs/main/image-8.jpg" alt="" class="albumImg" />
+          </div>
+          <div class="col-9 hero-text m-0">
+            <p class="fs-5 fw-bold">ALBUM</p>
+            <p class="display-1">Nome album</p>
+            <div>
+              <img
+                class="imgArtista rounded-circle d-inline"
+                src="https://i.scdn.co/image/ab6761610000f178d5d878bd4d4fe8426fcb442d"
+                alt=""
+              />
+              <span class="fs-5 fw-bold">Nome artista . anno . quantità brani,</span>
+              <span>24 min 31 sec.</span>
             </div>
           </div>
         </div>
-
+      </div>
+      <div class="grid gradient1 position-relative">
         <div class="row my-5">
           <div class="col">
             <div class="play">
-              <button id="play" class="bg-success rounded-circle mx-3">
+              <button id="play" class="bg-success rounded-circle border-0 mx-3">
                 <i class="bi bi-play-fill text-dark"></i>
               </button>
               <button class="bg-transparent rounded-circle border-0">
@@ -123,9 +132,15 @@
                   ></path>
                 </svg>
               </button>
-              <button class="bg-dark border border-light text-light mx-3">FOLLOWING</button>
               <div class="dropdown d-inline mx-3">
-                <button class="btn btn-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">...</button>
+                <button
+                  class="btn btn-dark bg-transparent border-0"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  ...
+                </button>
                 <ul class="dropdown-menu">
                   <li><button class="dropdown-item">Segui</button></li>
                   <li><button class="dropdown-item">Condividi</button></li>
