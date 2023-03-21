@@ -1,14 +1,22 @@
 .main {
   background-color: #7c082f;
+  width: 900px;
 }
 .arrow {
   background-color: rgba(6, 0, 17, 0.55);
   width: 30px;
   height: 30px;
 }
+.imgProfile {
+  width: 30px;
+  height: 30px;
+}
+.profileButton {
+  background-color: grey;
+}
 .albumImg {
   object-fit: fill;
-  width: 200px;
+  width: 220px;
 }
 .imgArtista {
   width: 40px;
@@ -21,5 +29,5 @@
 }
 .gradient1 {
   background: rgba(255, 255, 255, 0);
-  background: linear-gradient(180deg, rgba(6, 0, 17, 0.25) 13%, rgba(6, 0, 17, 0.55) 36%, rgba(6, 0, 17, 1) 100%);
+  background: linear-gradient(180deg, rgba(6, 0, 17, 0.25) 4%, rgba(6, 0, 17, 0.55) 14%, rgba(6, 0, 17, 1) 100%);
 }
