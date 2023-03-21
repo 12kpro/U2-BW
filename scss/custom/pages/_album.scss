@@ -1,0 +1,25 @@
+.main {
+  background-color: #7c082f;
+}
+.arrow {
+  background-color: rgba(6, 0, 17, 0.55);
+  width: 30px;
+  height: 30px;
+}
+.albumImg {
+  object-fit: fill;
+  width: 200px;
+}
+.imgArtista {
+  width: 40px;
+  height: 40px;
+}
+
+#play {
+  width: 80px;
+  height: 80px;
+}
+.gradient1 {
+  background: rgba(255, 255, 255, 0);
+  background: linear-gradient(180deg, rgba(6, 0, 17, 0.25) 13%, rgba(6, 0, 17, 0.55) 36%, rgba(6, 0, 17, 1) 100%);
+}
