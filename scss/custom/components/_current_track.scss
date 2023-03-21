@@ -3,24 +3,60 @@
     width: 56px;
     height: 56px;
   }
+  &__song {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .current-track {
+  height: 90px;
+  & button {
+    line-height: 1;
+  }
+  & .progress {
+    height: 0.25rem;
+  }
   &__actions {
     & button {
-      &:nth-child(3) {
-        width: 32px;
-        height: 32px;
-        transition: none 33ms cubic-bezier(0.3, 0, 0.7, 1);
-        transition-property: all;
-        &:hover {
-          transform: scale(1.06);
-          -webkit-transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
-          transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
-          -webkit-transition-property: all;
-          transition-property: all;
+      width: 32px;
+      height: 32px;
+      position: relative;
+      &.active {
+        &::after {
+          background-color: currentcolor;
+          border-radius: 50%;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 4px;
+          left: 50%;
+          position: absolute;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+          width: 4px;
         }
       }
     }
+    & > button {
+      transition: none 33ms cubic-bezier(0.3, 0, 0.7, 1);
+      transition-property: all;
+      &:hover {
+        transform: scale(1.06);
+        -webkit-transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+        transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+        -webkit-transition-property: all;
+        transition-property: all;
+      }
+    }
+  }
+  &__progress {
+  }
+  &__options {
   }
 }
