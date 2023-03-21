@@ -1,14 +1,19 @@
 // .button-card {
-//   transform: translate3d(0px, 0px, 0px);
+//   visibility: hidden;
+//   float: left;
+//   margin-right: 5px;
+//   transform: translate 3d (0px, 0px, 0px);
 //   background-color: transparent;
 //   font-size: 1rem;
 //   font-weight: 700;
-//   border-radius: 500px;
-//   cursor: pointer;
+//   border-radius: 50%;
+
 //   display: inline-block;
 //   text-align: center;
 //   text-decoration: none;
-//   text-transform: none;
 //   transition-duration: 33ms;
-//   transition-property: background-color, border-color, color, box-shadow, filter, transform;
+//   :hover {
+//     visibility: visible;
+//     cursor: pointer;
+//   }
 // }
