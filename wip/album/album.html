@@ -18,8 +18,8 @@
     <div class="main container-fluid position-absolute">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid d-flex justify-content-between">
-          <div class="">
-            <button class="arrow rounded-circle border-0 px-2">
+          <div>
+            <button class="arrow rounded-circle border-0 mx-3">
               <svg
                 role="img"
                 height="16"
@@ -34,7 +34,7 @@
                 ></path>
               </svg>
             </button>
-            <button class="arrow rounded-circle border-0 px-2">
+            <button class="arrow rounded-circle border-0 mx-3">
               <svg
                 role="img"
                 height="16"
@@ -91,33 +91,87 @@
         </div>
       </nav>
       <div class="grid position-relative">
-        <div class="row my-5 gap-5">
+        <div class="row my-5 gap-3">
           <div class="col-2">
             <img src="/assets/imgs/main/image-8.jpg" alt="" class="albumImg" />
           </div>
-          <div class="col-9 hero-text m-0">
-            <p class="fs-5 fw-bold">ALBUM</p>
-            <p class="display-1">Nome album</p>
+          <div class="col-7 hero-text">
+            <p class="fs-6 fw-bold">ALBUM</p>
+            <p class="display-3">Nome album</p>
             <div>
               <img
                 class="imgArtista rounded-circle d-inline"
                 src="https://i.scdn.co/image/ab6761610000f178d5d878bd4d4fe8426fcb442d"
                 alt=""
               />
-              <span class="fs-5 fw-bold">Nome artista . anno . quantità brani,</span>
+              <span class="fs-6 fw-bold">Nome artista . anno . quantità brani,</span>
               <span>24 min 31 sec.</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="grid gradient1 position-relative">
-        <div class="row my-5">
-          <div class="col">
-            <div class="play">
-              <button id="" class="bg-success rounded-circle border-0 mx-3">
-                <i class="bi bi-play-fill text-dark"></i>
-              </button>
-              <button class="bg-transparent rounded-circle border-0">
+      <div class="section2 container-fluid gradient1 position-relative">
+        <div class="grid container">
+          <div class="row my-5">
+            <div class="col">
+              <div class="play d-flex align-items-center">
+                <button id="play" class="bg-success rounded-circle border-0 mx-3 fs-4">
+                  <i class="bi bi-play-fill text-dark"></i>
+                </button>
+                <button class="bg-transparent rounded-circle border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw mx-3"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="dropdown d-inline mx-3">
+                  <button
+                    class="btn btn-dark bg-transparent border-0"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    . . .
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><button class="dropdown-item">Segui</button></li>
+                    <li><button class="dropdown-item">Condividi</button></li>
+                    <li><button class="dropdown-item">Apri con l' app per desktop</button></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid container text-light">
+          <div class="row d-flex justify-content-around my-1">
+            <div class="col-2 text-center">#Titolo</div>
+            <div class="col-8"></div>
+            <div class="col-2">
+              <i class="bi bi-clock"></i>
+            </div>
+          </div>
+          <hr class="py-3" />
+          <div class="row d-flex align-items-center">
+            <div class="col-4 d-flex flex-row align-items-center">
+              <div><button class="bg-transparent border-0">1</button></div>
+              <div class="px-5">
+                <div>Nome brano</div>
+                <a href="#">Artista</a>
+              </div>
+            </div>
+            <div class="col-5"></div>
+            <div class="col-1">
+              <button class="bg-transparent border-0">
                 <svg
                   role="img"
                   height="32"
@@ -125,73 +179,17 @@
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   data-encore-id="icon"
-                  class="Svg-sc-ytk21e-0 uPxdw"
+                  class="Svg-sc-ytk21e-0 uPxdw w-50"
                 >
                   <path
                     d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
                   ></path>
                 </svg>
               </button>
-              <div class="dropdown d-inline mx-3">
-                <button
-                  class="btn btn-dark bg-transparent border-0"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  ...
-                </button>
-                <ul class="dropdown-menu">
-                  <li><button class="dropdown-item">Segui</button></li>
-                  <li><button class="dropdown-item">Condividi</button></li>
-                  <li><button class="dropdown-item">Apri con l' app per desktop</button></li>
-                </ul>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6 d-flex flex-column">
-            <p class="text-light fs-4">Popolari</p>
-            <table class="table table-borderless text-light fs-5">
-              <tbody class="">
-                <tr>
-                  <th scope="row">1 <img src="" alt="" />Brano</th>
-                  <td>1234567</td>
-                  <td>3:18</td>
-                </tr>
-                <tr>
-                  <th scope="row">2 <img src="" alt="" />Brano</th>
-                  <td>1234567</td>
-                  <td>3:18</td>
-                </tr>
-                <tr>
-                  <th scope="row">3 <img src="" alt="" />Brano</th>
-                  <td>1234567</td>
-                  <td>3:18</td>
-                </tr>
-                <tr>
-                  <th scope="row">4 <img src="" alt="" />Brano</th>
-                  <td>1234567</td>
-                  <td>3:18</td>
-                </tr>
-                <tr>
-                  <th scope="row">5 <img src="" alt="" />Brano</th>
-                  <td>1234567</td>
-                  <td>3:18</td>
-                </tr>
-              </tbody>
-            </table>
-            <div>
-              <button class="bg-dark text-light fs-6">VISUALIZZA ALTRO</button>
-            </div>
-          </div>
-          <div class="col-6 d-flex flex-column">
-            <p class="text-light fs-4">Brani che ti piacciono</p>
-            <div>
-              <img class="rounded-circle" src="" alt="" />
-              <span class="fs-6">Hai messo mi piace a 11 brani</span>
-              <p class="fs-6">Di Nome Artista</p>
+            <div class="col-1">3:14</div>
+            <div class="col-1">
+              <button class="bg-transparent border-0">. . .</button>
             </div>
           </div>
         </div>
