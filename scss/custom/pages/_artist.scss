@@ -1,5 +1,23 @@
 .hero-image {
-  background-image: url("/assets/imgs/main/image-1.jpg");
+  background-image: url("https://i.scdn.co/image/ab676186000010167938c8a51db342dc3f3f8ed1");
+  background-attachment: scroll;
+  background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  contain: strict;
+  height: 40vh;
+  min-height: 340px;
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#play {
+  width: 50px;
+}
+.gradient {
+  background: rgb(250, 249, 252);
+  background: linear-gradient(180deg, rgba(47, 52, 61, 1) 20%, rgb(21, 21, 21) 80%);
 }
