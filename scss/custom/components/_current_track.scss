@@ -3,6 +3,15 @@
     width: 56px;
     height: 56px;
   }
+  &__song {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .current-track {
