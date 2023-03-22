@@ -5,3 +5,16 @@
 //     transform: scale(1.05);
 //   }
 // }
+.welcome {
+  &__card {
+    background-color: #413d3d;
+  }
+}
+
+.hero {
+  & img {
+    width: 232px;
+    height: 232px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  }
+}

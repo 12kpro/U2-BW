@@ -92,7 +92,7 @@ a {
   }
 }
 .navbar {
-  height: 73px;
+  //height: 73px;
   & .btn-nav-play {
     transition-duration: 33ms;
     &:hover {
@@ -100,10 +100,7 @@ a {
     }
   }
 }
-footer {
-  & .site-link {
-    width: 210px;
-  }
+.footer {
   a {
     text-decoration: none;
     color: #a7a7a7;

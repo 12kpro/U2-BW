@@ -16,6 +16,7 @@
 
 .current-track {
   height: 90px;
+  z-index: 1;
   & button {
     line-height: 1;
   }
