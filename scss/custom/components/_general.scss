@@ -38,6 +38,21 @@ a {
   }
 }
 
+.bg-main {
+  background-color: $bg-main;
+}
+
+.btn-social {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #292929;
+  &:hover {
+    background-color: #727272;
+  }
+}
 .btn-custom {
   width: 32px;
   height: 32px;
@@ -81,5 +96,19 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
+
+footer {
+  & .site-link {
+    width: 210px;
+  }
+  a {
+    text-decoration: none;
+    color: #a7a7a7;
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
   }
 }
