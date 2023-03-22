@@ -327,6 +327,37 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
+    <!-- prove di js sul file home -->
+    <script>
+      const createCardBig = (title, img, artist, idArtist, album, idAlbum) => {
+  const cardBig = document.querySelector("#");
+  cardBig.innerHTML = `<div class="row g-0">
+    <div class="col-2">
+      <img src="${img}" class="img-fluid" alt="${title}" />
+    </div>
+    <div class="col-6">
+      <div class="card-body">
+        <h6 class="card-title fw-bold text-truncate"><a class="text-decoration-none text-light" href=album.html?id=${idAlbum}>${album}</a></h6>
+        <h1 class="card-title fw-bold text-truncate">${title}</h1>
+        <p class="card-text"><a class="text-decoration-none text-light fw-bold" href=artist.html?id=${idArtist}>${artist}</a></p>
+        <p class="card-text fw-bold">Ascolta il nuovo singolo di <a class="text-decoration-none text-light" href=artist.html?id=${idArtist}>${artist}</a>!</p>
+        <div class="d-flex gap-2">
+          <button style="background-color: #1ed760" class="btn px-4 py-2 rounded-pill fw-bold">Play</button>
+          <button
+            style="background-color: #2125297c"
+            class="btn px-4 py-2 rounded-pill fw-bold text-light border border-1 border-light"
+          >
+            Salva
+          </button>
+          <button class="btn rounded-pill fw-bold text-light">
+            <i class="bi bi-three-dots text-secondary fs-3"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+};
+    </script>
   </body>
 </html>
 
