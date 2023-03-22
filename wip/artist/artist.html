@@ -15,12 +15,12 @@
     />
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <div class="hero-image"></div>
       <div class="section1 sticky-top">
         <nav class="navbar navbar-expand-lg">
           <div class="container-fluid d-flex justify-content-between">
-            <div class="">
+            <div>
               <button class="bg-transparent rounded-circle border-0 px-2">
                 <svg
                   role="img"
@@ -112,8 +112,8 @@
 
       <div class="section2 container-fluid">
         <div>
-          <div class="grid position-relative">
-            <div class="row my-5">
+          <div class="d-grid position-relative">
+            <div class="row my-2">
               <div class="col">
                 <div class="hero-text">
                   <div>
@@ -134,7 +134,7 @@
                     <p class="fs-6 fw-bold d-inline">Artista verificato</p>
                   </div>
 
-                  <p class="display-3 fw-bold">Nome artista</p>
+                  <p class="display-3 fw-bold text-light">Nome artista</p>
                   <p class="fs-5">112345 ascoltatori mensili</p>
                 </div>
               </div>
@@ -142,9 +142,9 @@
           </div>
         </div>
       </div>
-      <div class="section3 container-fluid position-relative gradient">
+      <div class="section3 container position-relative gradient">
         <div class="section3.1">
-          <div class="grid my-4">
+          <div class="d-grid">
             <div class="row my-5">
               <div class="col mt-4">
                 <div class="play d-flex align-items-center">
@@ -194,19 +194,19 @@
         </div>
 
         <div class="section3.2">
-          <div class="grid position-relative container-fluid text-light">
+          <div class="d-grid position-relative container-fluid text-light">
             <div class="row d-flex">
               <div class="col-6 d-flex flex-column">
                 <div class="grid">
                   <div class="row">
-                    <p class="text-light fs-3 fw-bold">Popolari</p>
+                    <p class="text-light fs-4 fw-bold">Popolari</p>
                   </div>
                   <div class="row my-4 d-flex align-items-center">
                     <div class="col-7 d-flex flex-row align-items-center">
                       <div><button class="bg-transparent border-0">1</button></div>
                       <div class="d-flex flex-row align-items-center p-0">
                         <div class="mx-2"><img class="imgBrano" src="/assets/imgs/main/image-10.jpg" alt="" /></div>
-                        <span>Nome brano</span>
+                        <span class="fs-6">Nome brano</span>
                       </div>
                     </div>
                     <div class="col-2">123456</div>
@@ -377,13 +377,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-6 d-flex flex-column px-5">
-                <p class="text-light fs-3 fw-bold">Brani che ti piacciono</p>
+              <div class="col-5 d-flex flex-column mx-4 px-5">
+                <p class="text-light fs-4 fw-bold">Brani che ti piacciono</p>
                 <div class="d-flex flex-row align-items-center">
                   <img class="imgArtista rounded-circle" src="/assets/imgs/main/image-11.jpg" alt="" />
                   <div class="fs-6 mx-3">
-                    <p class="m-0 fw-bold">Hai messo mi piace a 11 brani</p>
-                    <p class="m-0 fw-light">Di nome artista</p>
+                    <p class="m-0 fw-bold fs-6">Hai messo mi piace a 11 brani</p>
+                    <p class="m-0 fw-light fs-6">Di nome artista</p>
                   </div>
                 </div>
               </div>
@@ -393,11 +393,11 @@
             <button class="bg-transparent border-0 text-light fs-6 mx-3 p-2">VISUALIZZA ALTRO</button>
           </div>
         </div>
-        <div class="section3.3 container-fluid">
-          <div class="grid">
+        <div class="section3.3 container">
+          <div class="d-grid">
             <div class="row">
               <div class="col-10">
-                <p class="text-light fs-3 fw-bold">Discografia</p>
+                <p class="text-light fs-4 fw-bold">Discografia</p>
               </div>
               <div class="col-2">
                 <p class="fs-6">Mostra tutto</p>
@@ -417,7 +417,7 @@
               </div>
             </div>
           </div>
-          <div class="grid my-4">
+          <div class="d-grid my-4">
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 gy-2">
               <div class="col">
                 <div style="background-color: #181818" class="card border-0 text-light">
@@ -487,17 +487,17 @@
               </div>
             </div>
           </div>
-          <div class="grid">
+          <div class="d-grid">
             <div class="row">
               <div class="col-10">
-                <p class="text-light fs-3 fw-bold">Con nome artista</p>
+                <p class="text-light fs-4 fw-bold">Con nome artista</p>
               </div>
               <div class="col-2">
                 <p class="fs-6">Mostra tutto</p>
               </div>
             </div>
           </div>
-          <div class="grid my-4">
+          <div class="d-grid my-4">
             <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 gy-2">
               <div class="col">
                 <div style="background-color: #181818" class="card border-0 text-light">
@@ -568,30 +568,46 @@
             </div>
           </div>
 
-          <div class="grid">
+          <div class="d-grid">
             <div class="row">
               <div class="col-10">
-                <p class="text-light fs-3 fw-bold">Informazioni</p>
+                <p class="text-light fs-4 fw-bold">Informazioni</p>
               </div>
             </div>
-            <div class="row">
-              <img src="/assets/imgs/main/image-18.jpg" alt="" />
+            <div class="row bg-dark">
+              <img class="imgInformazioni" src="/assets/imgs/main/image-18.jpg" alt="" />
             </div>
           </div>
-          <div class="grid">
+          <div class="d-grid">
             <div class="row">
               <div class="col-10">
-                <p class="text-light fs-3 fw-bold">Merchandise</p>
+                <p class="text-light fs-4 fw-bold">Merchandise</p>
               </div>
             </div>
           </div>
-          <div class="grid">
+          <div class="d-grid container gap-3">
             <div class="row d-flex align-items-center">
               <div class="col-1 mx-2">
                 <img class="imgMerchandise" src="/assets/imgs/main/image-17.jpg" alt="" />
               </div>
               <div class="col-4 mx-2">
-                <p class="fs-4 fw-bold text-light">Nome Album</p>
+                <p class="fs-5 fw-bold text-light">Nome Album</p>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center">
+              <div class="col-1 mx-2">
+                <img class="imgMerchandise" src="/assets/imgs/main/image-17.jpg" alt="" />
+              </div>
+              <div class="col-4 mx-2">
+                <p class="fs-5 fw-bold text-light">Nome Album</p>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center">
+              <div class="col-1 mx-2">
+                <img class="imgMerchandise" src="/assets/imgs/main/image-17.jpg" alt="" />
+              </div>
+              <div class="col-4 mx-2">
+                <p class="fs-5 fw-bold text-light">Nome Album</p>
               </div>
             </div>
           </div>
