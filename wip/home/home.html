@@ -8,41 +8,83 @@
   </head>
   <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg sticky-top">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">
-                <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16">
-                  <path
-                    d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
-                  ></path>
-                </svg>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16">
-                  <path
-                    d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
-                  ></path>
-                </svg>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container d-flex justify-content-between">
+          <div>
+            <button class="bg-transparent rounded-circle border-0 px-2">
+              <svg
+                role="img"
+                height="16"
+                width="16"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 kcBZLg IYDlXmBmmUKHveMzIPCF"
+                viewBox="0 0 16 16"
+                data-encore-id="icon"
+              >
+                <path
+                  d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                ></path>
+              </svg>
+            </button>
+            <button class="bg-transparent rounded-circle border-0 px-2">
+              <svg
+                role="img"
+                height="16"
+                width="16"
+                aria-hidden="true"
+                class="Svg-sc-ytk21e-0 kcBZLg IYDlXmBmmUKHveMzIPCF"
+                viewBox="0 0 16 16"
+                data-encore-id="icon"
+              >
+                <path
+                  d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <div class="col-md-8 ms-md-auto ms-auto col-lg-8 col-xxl-9 d-flex justify-content-end px-0 mt-0">
+               
+                <div class=" dropdown p-0 rounded col ">
+                  <button class="tastoUtente btn bg-black text-white fw-bold dropdown-toggle " type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"> <img src="../../assets/imgs/main/image-1.jpg"
+                          class="rounded-circle" alt="..." style="width: 20px; height: 20px;">
+                      Marzo Pierluigi
+                  </button>
+                  <ul class=" dropdown-menu dropdown-menu-dark ">
+                      <li>
+                          <a class="menuaTendina dropdown-item " href="#">
+                              Account
+                              <span class="ml-5"><i class="bi bi-arrow-up-right-square"></i></span>
+                          </a>
+                      </li>
+                      <li><a class="menuaTendina dropdown-item " href="#">Profilo</a></li>
+                      <li><a class="menuaTendina dropdown-item " href="#"> Effettua l'upgrade a premium
+                              <span></span></a>
+                      </li>
+                      <li><a class="menuaTendina dropdown-item " href="#">Impostazioni</a></li>
+                      <li>
+                          <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="menuaTendina dropdown-item " href="#">Esci</a></li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </nav>
 
         <!-- card principale da sistemare forse la posizione del testo e se metto display-1 mi si ingrandisce troppo rispetto alla immagine -->
         
@@ -81,145 +123,75 @@
           </div>
         </div>
       </div>
-        <!-- <div class="row">
-          <div class="col">
-            <div class="hero">
-    
-            </div>
-          </div>
-        </div> -->
-        <p class="fw-bold fs-3 mb-3 text-light">Buonasera</p>
-        <div class="row">
-            <div class="col">
-                <div class="content">
-                <!-- Griglia per card home-->
-                  
-                  <div class="row row-cols-4 gap-3">
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-12.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col">
-                            <div class="card-body mx-2">
-                              <h5 class="  card-text fw-bold fs-6">early stage emily syndrome</h5>
-                              
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-13.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col">
-                            <div class="card-body mx-2">
-                              <h5 class="card-text fw-bold fs-6">Be the Young</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-12.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col-md-10">
-                            <div class="card-body mx-2">
-                              <h5 class="card-text fw-bold fs-6">2021 Hit</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-14.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col-md-10">
-                            <div class="card-body mx-2">
-                              <h5 class="card-text fw-bold fs-6">Saggio Vibes</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-15.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col-md-10">
-                            <div class="card-body mx-2">
-                              <h5 class="card-text fw-bold fs-6">Brani che ti piacciono</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="col">
-                      <div style="background-color: #413d3d" class="card mb-3 border-0 text-light rounded-2">
-                        <div class="row g-0">
-                          <div class="col-md-2">
-                            <img
-                              style="min-height: 70px; min-width: 70px"
-                              src="../../assets/imgs/main/image-16.jpg"
-                              class="img-fluid rounded-start"
-                              alt="pic"
-                            />
-                          </div>
-                          <div class="col-md-10">
-                            <div class="card-body mx-2">
-                              <h5 class="card-text fw-bold fs-6">Deep dive whith Ali Absal</h5>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                <!--fine griglia card -->                    
+      
+        <div class="container-fluid p-0 mb-3">
+          <h3 class="text-light mb-4 fw-bold">Buonasera</h3>
+          <div class="container-fluid">
+  
+            <div class="row row-cols-md-2 row-cols-lg-3 row-cols-xl-3 gap-3 mb-4">
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-1.jpeg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2" >
+                  early stage emily syndrome (sett-ott 2022)
                 </div>
               </div>
-        </div>
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-10.jpg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2">
+                  early stage emily syndrome (sett-ott 2022)
+                </div>
+              </div>
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-11.jpg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2">
+                  early stage emily syndrome (sett-ott 2022)
+                </div>
+              </div>
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-12.jpg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2">
+                  early stage emily syndrome (sett-ott 2022)
+                </div>
+              </div>
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-13.jpeg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2">
+                  early stage emily syndrome (sett-ott 2022)
+                </div>
+              </div>
+  
+              <div class="row ps-0 pe-0 ms-0 rounded rounded-1" style="background-color: #413d3d;">
+                <div class="col-md-4 col-lg-3 p-0">
+                  <img class="p-0 rounded rounded-1" width="75px" src="../../assets/imgs/search/image-16.jpg" alt="">
+                </div>
+                <div class="col text-light d-flex align-items-center fw-semibold pe-2">
+                  early stage emily syndrome (sett-ott 2022)
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        
+
+
+
+
+
         <div class="container-fluid d-flex justify-content-between px-0 mb-3">
           <p class="fw-bold fs-4 mb-3 text-light">Album</p>
           <a class="text-secondary text-decoration-none" href="#"><small>VISUALIZZA TUTTO</small></a>
