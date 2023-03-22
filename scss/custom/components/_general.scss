@@ -3,8 +3,12 @@
   //height: calc(100vh - 0px);
   // min-height: 0;
   overflow-y: overlay;
+  &__small {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+  }
   &::-webkit-scrollbar {
-    width: 15px;
     background-color: #00000000;
   }
   &::-webkit-scrollbar-track {
@@ -23,6 +27,20 @@
 }
 button,
 a {
+  color: $secondary-text;
+  padding: unset;
+  & svg {
+    fill: currentcolor;
+    pointer-events: none;
+  }
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-custom {
+  width: 32px;
+  height: 32px;
   color: $secondary-text;
   & svg {
     fill: currentcolor;
