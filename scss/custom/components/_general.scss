@@ -98,7 +98,15 @@ a {
     text-overflow: ellipsis;
   }
 }
-
+.navbar {
+  height: 73px;
+  & .btn-nav-play {
+    transition-duration: 33ms;
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}
 footer {
   & .site-link {
     width: 210px;
