@@ -1,18 +1,22 @@
 .main {
   background-color: #7c082f;
-  width: 900px;
+  width: 1000px;
 }
 .arrow {
   background-color: rgba(6, 0, 17, 0.55);
   width: 30px;
   height: 30px;
 }
-.imgProfile {
-  width: 30px;
-  height: 30px;
+.svgProfilo {
+  background-color: #535353;
+  padding: 3px;
 }
 .profileButton {
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 170px;
+}
+.profileButton:hover {
+  background-color: rgba(0, 0, 0, 1);
 }
 .albumImg {
   object-fit: fill;
@@ -27,7 +31,12 @@
   width: 80px;
   height: 80px;
 }
+
+.download i {
+  width: 30px;
+  height: 30px;
+}
 .gradient1 {
   background: rgba(255, 255, 255, 0);
-  background: linear-gradient(180deg, rgba(6, 0, 17, 0.25) 4%, rgba(6, 0, 17, 0.55) 14%, rgba(6, 0, 17, 1) 100%);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.55) 4%, rgba(18, 18, 18, 0.62) 8%, rgba(18, 18, 18, 1) 27%);
 }
