@@ -1,14 +1,7 @@
-.scroll {
-  height: 0;
-  //height: calc(100vh - 0px);
-  // min-height: 0;
+.scroll-small {
   overflow-y: overlay;
-  &__small {
-    &::-webkit-scrollbar {
-      width: 6px;
-    }
-  }
   &::-webkit-scrollbar {
+    width: 6px;
     background-color: #00000000;
   }
   &::-webkit-scrollbar-track {
