@@ -14,11 +14,20 @@
   top: 0;
   width: 100%;
 }
-#play {
-  width: 50px;
-  height: 50px;
+.artVerificato {
+  fill: #3d91f4;
+}
+.following {
+  font-size: 5px;
 }
 .gradient {
   background: rgb(250, 249, 252);
-  background: linear-gradient(180deg, rgba(47, 52, 61, 1) 20%, rgb(21, 21, 21) 80%);
+  background: linear-gradient(180deg, rgb(15, 17, 25) 20%, rgb(18, 18, 19) 80%);
+}
+.imgBrano {
+  width: 35px;
+}
+.imgArtista {
+  width: 90px;
+  height: 90px;
 }
