@@ -9,7 +9,7 @@ class CustomMsg {
     { code: "PUT", txt: "updated" },
     { code: "DELETE", txt: "deleted" },
     { code: "EMPTY", txt: "no data retrived" },
-    { code: "PIERLUIGI", txt: "Ciao pier" }
+    { code: "PIERLUIGI", txt: "Ciao pier" },
   ];
   static getTxt(code) {
     const msg = this.messages.find((item) => item.code === code);
@@ -49,9 +49,9 @@ const resp = async (url, method, body) => {
     method,
     headers: {
       //      Authorization: AUHT_KEY,
-      "Content-Type": "application/json; charset=utf-8" //fetch imposta di default application/json ????
+      "Content-Type": "application/json; charset=utf-8", //fetch imposta di default application/json ????
     },
-    body
+    body,
   };
   try {
     const response = await fetch(url, params);
@@ -157,7 +157,7 @@ const volumeBarInit = (el) => {
   let options = {
     min: 1,
     max: 100,
-    cur: 50 //prelevare da localstorage???
+    cur: 50, //prelevare da localstorage???
   };
 
   if (rangeElement) {
@@ -261,7 +261,7 @@ const trackTpl = (num, img, title, rank, duration) => `
 </div>
 <div class="d-none d-md-block col-1">${duration}</div>
 <div class="col-1">
-  <button class="bg-transparent border-0">
+  <button class="d-none d-md-block bg-transparent border-0">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -380,7 +380,7 @@ const mainImg = [
   "main/image-2.jpg",
   "main/image-4.jpg",
   "main/image-6.jpg",
-  "main/image-8.jpg"
+  "main/image-8.jpg",
 ];
 
 const searchImg = [
@@ -435,5 +435,5 @@ const searchImg = [
   "search/image-45.png",
   "search/image-49.jpg",
   "search/image-52.jpg",
-  "search/image-9.jpg"
+  "search/image-9.jpg",
 ];
