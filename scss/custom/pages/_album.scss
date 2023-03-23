@@ -35,9 +35,24 @@
   background: linear-gradient(180deg, rgba(18, 18, 18, 0.55) 4%, rgba(18, 18, 18, 0.62) 8%, rgba(18, 18, 18, 1) 27%);
 }
 .riga {
-  text-decoration: none;
   &:hover {
-    background-color: rgb(123, 98, 98);
+    background-color: rgb(40, 40, 40, 0.55);
     transition: transform 0.3s ease-in-out;
   }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.riga:hover svg {
+  opacity: 1;
+}
+.riga:hover .numero {
+  opacity: 0;
+}
+.riga:hover .invisiblePlay {
+  opacity: 1;
 }
