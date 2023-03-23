@@ -9,7 +9,7 @@ class CustomMsg {
     { code: "PUT", txt: "updated" },
     { code: "DELETE", txt: "deleted" },
     { code: "EMPTY", txt: "no data retrived" },
-    { code: "PIERLUIGI", txt: "Ciao pier" }
+    { code: "PIERLUIGI", txt: "Ciao pier" },
   ];
   static getTxt(code) {
     const msg = this.messages.find((item) => item.code === code);
@@ -49,9 +49,9 @@ const resp = async (url, method, body) => {
     method,
     headers: {
       //      Authorization: AUHT_KEY,
-      "Content-Type": "application/json; charset=utf-8" //fetch imposta di default application/json ????
+      "Content-Type": "application/json; charset=utf-8", //fetch imposta di default application/json ????
     },
-    body
+    body,
   };
   try {
     const response = await fetch(url, params);
@@ -157,7 +157,7 @@ const volumeBarInit = (el) => {
   let options = {
     min: 1,
     max: 100,
-    cur: 50 //prelevare da localstorage???
+    cur: 50, //prelevare da localstorage???
   };
 
   if (rangeElement) {
@@ -219,12 +219,30 @@ const heroTpl = (id, page, img, artist) => `
 </div>
 `;
 const trackTpl = (num, img, title, rank, duration) => `
-<div class="row my-4 align-items-center">
-<div class="col-6 d-flex flex-wrap align-items-center">
-  <button class="bg-transparent border-0 p-2">${num}</button>
+<div class="row my-2 riga rounded my-4 align-items-center">
+<div class="col-6 d-flex flex-wrap align-items-center p-0">
+        <div class="position-relative d-none d-md-block">
+        <span class="btn-custom numero position-absolute">${num}</span>
+        <button class="btn-custom bg-transparent border-0">
+          <svg
+            role="img"
+            height="16"
+            width="16"
+            opacity="0"
+            aria-hidden="true"
+            viewBox="0 0 16 16"
+            data-encore-id="icon"
+          >
+            <path
+              d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+            ></path>
+          </svg>
+        </button>
+        </div>
+
   <div class="d-flex flex-row align-items-center p-0">
-    <div class="mx-2"><img class="imgBrano" src="${img}"/></div>
-    <span class="fs-6"></span><a class="text-secondary link-light text-truncate">${title}</a></span>
+    <div class="me-2"><img class="imgBrano" src="${img}"/></div>
+    <span class="fs-6"><a class="text-secondary link-light text-truncate fs-6">${title}</a></span>
   </div>
 </div>
 <div class="d-none d-md-block offset-md-1 col-2">${rank}</div>
@@ -380,7 +398,7 @@ const mainImg = [
   "main/image-2.jpg",
   "main/image-4.jpg",
   "main/image-6.jpg",
-  "main/image-8.jpg"
+  "main/image-8.jpg",
 ];
 
 const searchImg = [
@@ -435,5 +453,5 @@ const searchImg = [
   "search/image-45.png",
   "search/image-49.jpg",
   "search/image-52.jpg",
-  "search/image-9.jpg"
+  "search/image-9.jpg",
 ];

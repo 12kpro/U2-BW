@@ -24,16 +24,41 @@
   background: linear-gradient(180deg, rgb(15, 17, 25) 20%, rgb(18, 18, 19) 80%);
 }
 .imgBrano {
-  width: 35px;
+  width: 30px;
 }
+
+.riga {
+  &:hover {
+    background-color: rgb(40, 40, 40, 0.55);
+    transition: transform 0.3s ease-in-out;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.numero {
+  text-align: center;
+  line-height: 32px;
+  font-size: 13px;
+}
+.riga:hover svg {
+  opacity: 1;
+}
+.riga:hover .numero {
+  opacity: 0;
+}
+.riga:hover .invisiblePlay {
+  opacity: 1;
+}
+
 .imgArtista {
   width: 55px;
   height: 55px;
 }
 .buttonDiscografia {
   background-color: #232323;
-}
-
-.imgMerchandise {
-  width: 60px;
 }
