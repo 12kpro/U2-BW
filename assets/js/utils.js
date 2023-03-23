@@ -9,7 +9,7 @@ class CustomMsg {
     { code: "PUT", txt: "updated" },
     { code: "DELETE", txt: "deleted" },
     { code: "EMPTY", txt: "no data retrived" },
-    { code: "PIERLUIGI", txt: "Ciao pier" },
+    { code: "PIERLUIGI", txt: "Ciao pier" }
   ];
   static getTxt(code) {
     const msg = this.messages.find((item) => item.code === code);
@@ -49,9 +49,9 @@ const resp = async (url, method, body) => {
     method,
     headers: {
       //      Authorization: AUHT_KEY,
-      "Content-Type": "application/json; charset=utf-8", //fetch imposta di default application/json ????
+      "Content-Type": "application/json; charset=utf-8" //fetch imposta di default application/json ????
     },
-    body,
+    body
   };
   try {
     const response = await fetch(url, params);
@@ -157,7 +157,7 @@ const volumeBarInit = (el) => {
   let options = {
     min: 1,
     max: 100,
-    cur: 50, //prelevare da localstorage???
+    cur: 50 //prelevare da localstorage???
   };
 
   if (rangeElement) {
@@ -279,11 +279,11 @@ const trackTpl = (num, img, title, rank, duration) => `
 </div>
 `;
 
-const trackAlbumTpl = () => `
+const trackAlbumTpl = (num, title, artist, duration) => `
 <div class="row d-flex align-items-center pb-3 riga">
 <div class="col-4 d-flex flex-row align-items-center">
   <div class="position-relative d-none d-md-block">
-    <span class="btn-custom numero position-absolute">1</span>
+    <span class="btn-custom numero position-absolute">${num}</span>
     <button class="btn-custom bg-transparent border-0">
       <svg
         role="img"
@@ -302,8 +302,8 @@ const trackAlbumTpl = () => `
   </div>
 
   <div class="px-5">
-    <div>Nome brano</div>
-    <a href="#">Artista</a>
+    <div>${title}</div>
+    <a href="#">${artist}</a>
   </div>
 </div>
 <div class="d-none d-md-block col-1 offset-5">
@@ -324,7 +324,7 @@ const trackAlbumTpl = () => `
     </svg>
   </button>
 </div>
-<div class="d-none d-md-block col-1">3:14</div>
+<div class="d-none d-md-block col-1">${duration}</div>
 <div class="col-1">
   <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
     <svg
@@ -380,7 +380,7 @@ const mainImg = [
   "main/image-2.jpg",
   "main/image-4.jpg",
   "main/image-6.jpg",
-  "main/image-8.jpg",
+  "main/image-8.jpg"
 ];
 
 const searchImg = [
@@ -435,5 +435,5 @@ const searchImg = [
   "search/image-45.png",
   "search/image-49.jpg",
   "search/image-52.jpg",
-  "search/image-9.jpg",
+  "search/image-9.jpg"
 ];
