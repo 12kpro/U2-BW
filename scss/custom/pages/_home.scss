@@ -13,9 +13,13 @@
     transform: translateY(8px);
   }
   &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
     & .card-play-btn {
       opacity: 1;
       transform: translateY(0);
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
     }
   }
 }
