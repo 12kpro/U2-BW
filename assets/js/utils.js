@@ -186,7 +186,7 @@ const cardTpl = (id, page, img, title, txt) => `
   <div class="card border-0 text-light">
         <div class="p-3 pb-1 rounded-3 position-relative">
           <img src="${img}" class="card-img img-fluid"  alt="pic">
-          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./?page=${page}&id=${id}">
+          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./album.html?id=${id}">
               <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                 <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
               </svg>
@@ -211,7 +211,7 @@ const heroTpl = (id, page, img, artist) => `
       <h6 class="card-title fw-bold text-truncate">ALBUM</h6>
       <h1 class="text-light fs-1 fw-bold  d-1 text-truncate">${artist}</h1>
       <div class="d-flex gap-2">
-        <a class="btn btn-success px-4 py-2 rounded-pill fw-bold" href="./?page=${page}&id=${id}">Vedi</a>
+        <a class="btn btn-success px-4 py-2 rounded-pill fw-bold" href="./artists?id=${id}">Vedi</a>
       </div>
     </div>
   </div>
