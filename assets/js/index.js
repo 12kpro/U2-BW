@@ -1,3 +1,8 @@
+const URLParams = new URLSearchParams(window.location.search);
+const pageType = URLParams.get("page");
+const id = URLParams.get("id");
+
+console.log(pageType, id);
 document.addEventListener("DOMContentLoaded", () => {
   volumeBarInit('.current-track__options__vol input[type="range"]');
 
@@ -20,29 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
     searchCnt.innerHTML = "";
     let searchResults = await resp(url);
 
-    const searchCntAlbum = document.createElement("div");
-    searchCntAlbum.classList.add(
-      "row",
-      "row-cols-1",
-      "row-cols-sm-2",
-      "row-cols-md-3",
-      "row-cols-lg-4",
-      "row-cols-xl-5",
-      "gx-4",
-      "gy-3",
-      "mb-4"
-    );
-
-    for (const [i, album] of searchResults.data.entries()) {
-      console.log(album);
-      if (i === 0) {
-        searchCnt.insertAdjacentHTML("afterbegin", heroTpl(album.artist.picture, album.artist.name, album.artist.id));
-      }
-      searchCntAlbum.insertAdjacentHTML(
+    for (const album of searchResults.data) {
+      searchCnt.insertAdjacentHTML(
         "beforeend",
-        cardTpl(album.album.cover, album.id, album.title_short, album.title_version)
+        cardTpl(album.id, "album", album.album.cover, album.title_short, album.title_version)
       );
-      searchCnt.append(searchCntAlbum);
     }
   });
 });

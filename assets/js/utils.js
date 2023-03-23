@@ -181,41 +181,104 @@ const randomImg = (imgs) => {
   return imgs[rand];
 };
 
-const cardTpl = (img, href, title, txt) => `
-<div class="card border-0 text-light">
-      <div class="px-4 pt-4 pb-1 rounded-3 position-relative">
-        <img src="${img}" class="card-img img-fluid"  alt="pic">
-        <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="${href}">
-            <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
-              <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
-            </svg>
-        </a>
-      </div>
-      <div class="card-body px-4">
-        <h5 class="card-title fs-5">${title}</h5>
-        <p class="card-text text-secondary">${txt}</p>
-      </div>
+const cardTpl = (id, page, img, title, txt) => `
+<div class="col">
+  <div class="card border-0 text-light">
+        <div class="p-3 pb-1 rounded-3 position-relative">
+          <img src="${img}" class="card-img img-fluid"  alt="pic">
+          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./?page=${page}&id=${id}">
+              <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+              </svg>
+          </a>
+        </div>
+        <div class="card-body px-3">
+          <h5 class="card-title fs-6 text-truncate">${title}</h5>
+          <p class="card-text text-secondary small text-truncate">${txt}</p>
+        </div>
+  </div>
 </div>
 `;
 
-const heroTpl = (img, artist, id) => `
+const heroTpl = (id, page, img, artist) => `
 <div class="row my-4">
 <div class="col-12">
   <div class="hero d-flex justify-content-center justify-content-md-start px-4 py-3 bg-black bg-opacity-75">
     <div class="flex-shrink-0 p-4">
       <img class="img-fluid" src="${img}">
     </div>
-    <div class="d-none d-md-flex flex-column ms-3 justify-content-between">
-      <h6 class="card-title fw-bold text-trancate">ALBUM</h6>
-      <h1 class="text-light fs-1 fw-bold  d-1 text-trancate">${artist}</h1>
+    <div class="d-none d-md-flex flex-column ms-3 justify-content-end">
+      <h6 class="card-title fw-bold text-truncate">ALBUM</h6>
+      <h1 class="text-light fs-1 fw-bold  d-1 text-truncate">${artist}</h1>
       <div class="d-flex gap-2">
-        <button class="btn btn-success px-4 py-2 rounded-pill fw-bold" href="./artist?id=${id}">Vedi</button>
+        <a class="btn btn-success px-4 py-2 rounded-pill fw-bold" href="./?page=${page}&id=${id}">Vedi</a>
       </div>
     </div>
   </div>
 </div>
 </div>
 `;
+const trackTpl = (num, img, title, rank, duration) => `
+<div class="row my-4 align-items-center">
+<div class="col-6 d-flex flex-wrap align-items-center">
+  <button class="bg-transparent border-0 p-2">${num}</button>
+  <div class="d-flex flex-row align-items-center p-0">
+    <div class="mx-2"><img class="imgBrano" src="${img}"/></div>
+    <span class="fs-6"></span><a class="text-secondary link-light text-truncate">${title}</a></span>
+  </div>
+</div>
+<div class="d-none d-md-block offset-md-1 col-2">${rank}</div>
+<div class="col-4 col-md-1">
+  <button class="d-none d-md-block bg-transparent border-0">
+    <svg
+      role="img"
+      height="20"
+      width="20"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      data-encore-id="icon"
+      class="Svg-sc-ytk21e-0 uPxdw"
+    >
+      <path
+        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+      ></path>
+    </svg>
+  </button>
+  <button class="bg-transparent border-0 d-md-none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-three-dots-vertical"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+      />
+    </svg>
+  </button>
+</div>
+<div class="d-none d-md-block col-1">${duration}</div>
+<div class="col-1">
+  <button class="bg-transparent border-0">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-three-dots"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+      />
+    </svg>
+  </button>
+</div>
+</div>
+`;
+
 const mainImg = [
   "main/image-11.jpg",
   "main/image-1.jpg",
