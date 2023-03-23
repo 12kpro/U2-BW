@@ -134,7 +134,7 @@ class Slider {
     );
     //
 
-    console.dir(this.volMax);
+    //console.dir(this.volMax);
     if (percentage >= 60 && btn.dataset.vol !== "max") {
       btn.innerHtml = " ciao "; //this.volMax;
       btn.dataset.vol = "max";
@@ -151,8 +151,8 @@ class Slider {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  let rangeElement = document.querySelector('.current-track__options__vol input[type="range"]');
+const volumeBarInit = (el) => {
+  let rangeElement = document.querySelector(el);
 
   let options = {
     min: 1,
@@ -174,4 +174,121 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.classList.toggle("active");
     e.target.classList.toggle("text-success");
   });
-});
+};
+
+const randomImg = (imgs) => {
+  const rand = Math.floor(Math.random() * imgs.length);
+  return imgs[rand];
+};
+
+const cardTpl = (img, href, title, txt) => `
+<div class="card border-0 text-light">
+      <div class="px-4 pt-4 pb-1 rounded-3 position-relative">
+        <img src="${img}" class="card-img img-fluid"  alt="pic">
+        <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="${href}">
+            <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+              <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+            </svg>
+        </a>
+      </div>
+      <div class="card-body px-4">
+        <h5 class="card-title fs-5">${title}</h5>
+        <p class="card-text text-secondary">${txt}</p>
+      </div>
+</div>
+`;
+
+const heroTpl = (img, artist, id) => `
+<div class="row my-4">
+<div class="col-12">
+  <div class="hero d-flex justify-content-center justify-content-md-start px-4 py-3 bg-black bg-opacity-75">
+    <div class="flex-shrink-0 p-4">
+      <img class="img-fluid" src="${img}">
+    </div>
+    <div class="d-none d-md-flex flex-column ms-3 justify-content-between">
+      <h6 class="card-title fw-bold text-trancate">ALBUM</h6>
+      <h1 class="text-light fs-1 fw-bold  d-1 text-trancate">${artist}</h1>
+      <div class="d-flex gap-2">
+        <button class="btn btn-success px-4 py-2 rounded-pill fw-bold" href="./artist?id=${id}">Vedi</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+`;
+const mainImg = [
+  "main/image-11.jpg",
+  "main/image-1.jpg",
+  "main/image-13.jpg",
+  "main/image-15.jpg",
+  "main/image-17.jpg",
+  "main/image-19.jpg",
+  "main/image-3.jpg",
+  "main/image-5.jpg ",
+  "main/image-7.jpg",
+  "main/image-9.jpg",
+  "main/image-10.jpg",
+  "main/image-12.jpg",
+  "main/image-14.jpg",
+  "main/image-16.jpg",
+  "main/image-18.jpg",
+  "main/image-2.jpg",
+  "main/image-4.jpg",
+  "main/image-6.jpg",
+  "main/image-8.jpg"
+];
+
+const searchImg = [
+  "search/image-1.jpeg",
+  "search/image-13.jpeg",
+  "search/image-17.jpg",
+  "search/image-20.jpg",
+  "search/image-24.jpg",
+  "search/image-28.jpg",
+  "search/image-31.jpg",
+  "search/image-35.jpg",
+  "search/image-39.jpg",
+  "search/image-42.png",
+  "search/image-46.jpeg",
+  "search/image-5.jpg",
+  "search/image-6.jpg",
+  "search/image-10.jpg",
+  "search/image-14.jpg",
+  "search/image-18.jpg",
+  "search/image-21.jpg",
+  "search/image-25.jpeg",
+  "search/image-29.jpg",
+  "search/image-32.jpg",
+  "search/image-36.jpg",
+  "search/image-4.jpg",
+  "search/image-43.png",
+  "search/image-47.jpg",
+  "search/image-50.jpg",
+  "search/image-7.jpg",
+  "search/image-11.jpg",
+  "search/image-15.jpg",
+  "search/image-19.jpg",
+  "search/image-22.jpg",
+  "search/image-26.jpg",
+  "search/image-3.jpg",
+  "search/image-33.jpg",
+  "search/image-37.jpeg",
+  "search/image-40.jpg",
+  "search/image-44.png",
+  "search/image-48.jpeg",
+  "search/image-51.jpg",
+  "search/image-8.jpg",
+  "search/image-12.jpg",
+  "search/image-16.jpg",
+  "search/image-2.jpg",
+  "search/image-23.jpg",
+  "search/image-27.jpg",
+  "search/image-30.jpg",
+  "search/image-34.jpg",
+  "search/image-38.jpg",
+  "search/image-41.jpg",
+  "search/image-45.png",
+  "search/image-49.jpg",
+  "search/image-52.jpg",
+  "search/image-9.jpg"
+];
