@@ -6,8 +6,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const url = `${BASE_URL}album/${id}`;
 
+  const albumTrackListCnt = document.getElementById("album_tracks");
+  const alumOtherCnt = document.getElementById("album_other");
+
   let albumResults = await resp(url);
-  console.log(albumResults);
+  console.log(albumResults.tracks.data);
   /*
   for (const album of searchResults.data) {
     searchCnt.insertAdjacentHTML(
