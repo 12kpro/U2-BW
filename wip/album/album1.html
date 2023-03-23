@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="placeholder" style="width: 245px; height: 100%"></div>
+
+    <div class="main container-fluid d-inline position-absolute">
+      <div class="section1 sticky-top">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid d-flex justify-content-between">
+            <div>
+              <button class="arrow rounded-circle bg-black border-0 mx-1">
+                <svg
+                  role="img"
+                  height="16"
+                  width="16"
+                  aria-hidden="true"
+                  class="Svg-sc-ytk21e-0 kcBZLg IYDlXmBmmUKHveMzIPCF d-flex justify-content-center align-items-center"
+                  viewBox="0 0 16 16"
+                  data-encore-id="icon"
+                >
+                  <path
+                    d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                  ></path>
+                </svg>
+              </button>
+              <button class="arrow rounded-circle border-0 mx-1" disabled>
+                <svg
+                  role="img"
+                  height="16"
+                  width="16"
+                  aria-hidden="true"
+                  class="Svg-sc-ytk21e-0 kcBZLg IYDlXmBmmUKHveMzIPCF d-flex justify-content-center align-items-center"
+                  viewBox="0 0 16 16"
+                  data-encore-id="icon"
+                >
+                  <path
+                    d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="d-flex flex-row align-items-center d-none">
+              <button
+                class="border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3"
+              >
+                <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                  <path
+                    d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                  ></path>
+                </svg>
+              </button>
+              <span class="fw-bold fs-5 mx-2 text-light">ALBUM</span>
+            </div>
+
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <button class="profileButton rounded-pill px-0 border-0 d-flex align-items-center">
+                    <a
+                      class="nav-link dropdown-toggle rounded-pill fw-bold me-5 text-light pt-0 pb-1"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <svg
+                        role="img"
+                        height="21"
+                        width="21"
+                        aria-hidden="true"
+                        viewBox="0 0 16 16"
+                        data-encore-id="icon"
+                        class="svgProfilo Svg-sc-ytk21e-0 gQUQL rounded-circle"
+                      >
+                        <path
+                          d="M6.233.371a4.388 4.388 0 0 1 5.002 1.052c.421.459.713.992.904 1.554.143.421.263 1.173.22 1.894-.078 1.322-.638 2.408-1.399 3.316l-.127.152a.75.75 0 0 0 .201 1.13l2.209 1.275a4.75 4.75 0 0 1 2.375 4.114V16H.382v-1.143a4.75 4.75 0 0 1 2.375-4.113l2.209-1.275a.75.75 0 0 0 .201-1.13l-.126-.152c-.761-.908-1.322-1.994-1.4-3.316-.043-.721.077-1.473.22-1.894a4.346 4.346 0 0 1 .904-1.554c.411-.448.91-.807 1.468-1.052zM8 1.5a2.888 2.888 0 0 0-2.13.937 2.85 2.85 0 0 0-.588 1.022c-.077.226-.175.783-.143 1.323.054.921.44 1.712 1.051 2.442l.002.001.127.153a2.25 2.25 0 0 1-.603 3.39l-2.209 1.275A3.25 3.25 0 0 0 1.902 14.5h12.196a3.25 3.25 0 0 0-1.605-2.457l-2.209-1.275a2.25 2.25 0 0 1-.603-3.39l.127-.153.002-.001c.612-.73.997-1.52 1.052-2.442.032-.54-.067-1.097-.144-1.323a2.85 2.85 0 0 0-.588-1.022A2.888 2.888 0 0 0 8 1.5z"
+                        ></path>
+                      </svg>
+                      Profilo utente
+                    </a>
+
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#">Account <i class="bi bi-box-arrow-up-right"></i></a>
+                      </li>
+                      <li><a class="dropdown-item" href="#">Profilo</a></li>
+                      <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+
+                      <li><hr class="dropdown-divider" /></li>
+                      <li><a class="dropdown-item" href="#">Esci</a></li>
+                    </ul>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="section2">
+        <div class="d-grid">
+          <div class="row mt-3 align-items-end">
+            <div class="col-md-3 col-12 me-2 d-flex justify-content-center md-block">
+              <img src="/assets/imgs/main/image-8.jpg" alt="" class="albumImg" />
+            </div>
+            <div class="col-md-7 col-12 hero-text text-light d-flex justify-content-center md-block">
+              <div class="d-flex flex-column">
+                <p class="fs-6 fw-bold text-center text-md-start">ALBUM</p>
+                <p class="display-3 fw-bold text-center text-md-start">Nome album</p>
+                <div class="row d-flex align-items-md-center">
+                  <div class="col-12 justify-content-center text-center md-block col-md-2">
+                    <img
+                      class="imgArtista rounded-circle d-inline"
+                      src="https://i.scdn.co/image/ab6761610000f178d5d878bd4d4fe8426fcb442d"
+                      alt=""
+                    />
+                  </div>
+
+                  <div class="col-12 d-flex justify-content-center text-center md-block col-md-10">
+                    <div class="row">
+                      <p class="fs-6 fw-normal text-center text-md-start">Nome artista . anno . quantità brani,</p>
+                      <span class="fw-light text-center text-md-start">24 min 31 sec.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section3 container-fluid gradient1">
+        <div class="section3.1">
+          <div class="grid my-4">
+            <div class="row">
+              <div class="col mt-4">
+                <div class="play d-flex justify-content-center justify-content-md-start align-items-center">
+                  <button
+                    class="border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3"
+                  >
+                    <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                      <path
+                        d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button class="d-none d-md-block bg-transparent rounded-circle border-0">
+                    <svg
+                      role="img"
+                      height="32"
+                      width="32"
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      data-encore-id="icon"
+                      class="Svg-sc-ytk21e-0 uPxdw mx-3"
+                    >
+                      <path
+                        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button class="d-none d-md-block bg-transparent rounded-circle border-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-arrow-down-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"
+                      />
+                    </svg>
+                  </button>
+                  <div class="d-none d-md-block dropdown d-inline mx-3">
+                    <button
+                      class="bootstrap-icons bg-transparent border-0"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="30"
+                        class="bi bi-three-dots"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                        />
+                      </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><button class="dropdown-item">Segui</button></li>
+                      <li><button class="dropdown-item">Condividi</button></li>
+                      <li><button class="dropdown-item">Apri con l' app per desktop</button></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section3.2">
+          <div class="grid text-light">
+            <div class="d-none row d-md-flex justify-content-around mt-1">
+              <div class="col-1">#</div>
+              <div class="col-1">Titolo</div>
+              <div class="col-8"></div>
+              <div class="col-2">
+                <i class="bi bi-clock"></i>
+              </div>
+            </div>
+            <hr class="py-3" />
+
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+            <div class="row d-flex align-items-center pb-3">
+              <div class="col-4 d-flex flex-row align-items-center">
+                <div><button class="d-none d-md-block bg-transparent border-0">1</button></div>
+                <div class="px-5">
+                  <div>Nome brano</div>
+                  <a href="#">Artista</a>
+                </div>
+              </div>
+              <div class="col-5"></div>
+              <div class="d-none d-md-block col-1">
+                <button class="bg-transparent border-0">
+                  <svg
+                    role="img"
+                    height="32"
+                    width="32"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    data-encore-id="icon"
+                    class="Svg-sc-ytk21e-0 uPxdw w-50"
+                  >
+                    <path
+                      d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div class="d-none d-md-block col-1">3:14</div>
+              <div class="col-1">
+                <button class="d-none d-md-block bg-transparent border-0 d-flex align-items-center">
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <button class="d-flex justify-content-end bg-transparent border-0 d-flex align-items-center d-md-none">
+                  <i class="bi bi-three-dots-vertical"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="my-5 fs-6">
+            <div>Data produzione album</div>
+            <div>Copyright</div>
+          </div>
+        </div>
+        <div class="section3.3">
+          <div class="d-flex justify-content-center justify-content-md-start">
+            <p class="text-light fs-4 fw-bold">Altro dell' artista</p>
+          </div>
+          <div class="grid">
+            <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 row-cols-xxl-7 gy-2">
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div style="background-color: #181818" class="card border-0 text-light">
+                  <div class="px-3 pt-3 pb-1 rounded-3">
+                    <img src="../../assets/imgs/main/image-12.jpg" class="card-img img-fluid" alt="pic" />
+                  </div>
+                  <div class="card-body px-4">
+                    <h5 class="card-title fs-6">Titolo Album</h5>
+                    <p class="card-text text-secondary pb-3">2022</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
