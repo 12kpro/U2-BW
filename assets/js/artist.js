@@ -36,13 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const suggestedList = await resp(suggestedUrl);
 
   for (const album of suggestedList.data) {
-    albumCnt.insertAdjacentHTML(
-      "beforeend",
-      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
-    );
-    suggestedCnt.insertAdjacentHTML(
-      "beforeend",
-      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
-    );
+    albumCnt.append(cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version));
+    suggestedCnt.append(cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version));
   }
 });

@@ -21,11 +21,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(url);
     searchCnt.innerHTML = "";
     let searchResults = await resp(url);
-
-    for (const album of searchResults.data) {
-      searchCnt.insertAdjacentHTML(
-        "beforeend",
-        cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
+    console.log(searchResults);
+    for (const track of searchResults.data) {
+      searchCnt.append(
+        cardTpl(track.album.id, "album", track.album.cover, track.title_short, track.title_version, track.preview)
       );
     }
   });

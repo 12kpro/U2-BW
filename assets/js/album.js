@@ -40,9 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const suggestedList = await resp(suggestedUrl);
 
   for (const album of suggestedList.data) {
-    alumOtherCnt.insertAdjacentHTML(
-      "beforeend",
-      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
-    );
+    alumOtherCnt.append(cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version));
   }
 });

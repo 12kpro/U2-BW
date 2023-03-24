@@ -266,11 +266,11 @@ const buildSection = async (title, artistList, cardType, qty) => {
 
   if (cardType === "album") {
     for (const album of await randomContent(artistList, cardType, qty)) {
-      newSection.insertAdjacentHTML("beforeend", cardTpl(album.id, "album", album.cover, album.title, ""));
+      newSection.append(cardTpl(album.id, "album", album.cover, album.title, ""));
     }
   } else if (cardType === "artists") {
     for (const artist of await randomContent(artistList, cardType, qty)) {
-      newSection.insertAdjacentHTML("beforeend", cardTpl(artist.id, "artists", artist.picture, artist.name, ""));
+      newSection.append(cardTpl(artist.id, "artists", artist.picture, artist.name, ""));
     }
   }
 
@@ -288,24 +288,36 @@ const buildSection = async (title, artistList, cardType, qty) => {
 */
 };
 
-const cardTpl = (id, page, img, title, txt) => `
-<div class="col">
-  <div class="card border-0 text-light">
-        <div class="p-3 pb-1 rounded-3 position-relative">
-          <img src="${img}" class="card-img img-fluid"  alt="pic">
-          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./${page}.html?id=${id}">
-              <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
-                <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
-              </svg>
-          </a>
+const cardTpl = (id, page, img, title, txt, play = false) => {
+  const cardTemplate = document.createElement("template");
+  const cardCnt = `
+        <div class="col">
+          <div class="card border-0 text-light">
+                <div class="p-3 pb-1 rounded-3 position-relative">
+                  <img src="${img}" class="card-img img-fluid"  alt="pic">
+                    <button class="${
+                      play ? "d-block" : "d-none"
+                    } card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" data-track="${play}">
+                      <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                        <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+                      </svg>
+                    </button>
+                </div>
+                <div class="card-body px-3">
+                <a href="./${page}.html?id=${id}" class="text-decoration-none stretched-link"><h5 class="card-title fs-6 text-truncate">${title}</h5></a>
+                  <p class="card-text text-secondary small text-truncate">${txt}</p>
+                </div>
+          </div>
         </div>
-        <div class="card-body px-3">
-          <h5 class="card-title fs-6 text-truncate">${title}</h5>
-          <p class="card-text text-secondary small text-truncate">${txt}</p>
-        </div>
-  </div>
-</div>
-`;
+        `;
+  cardTemplate.innerHTML = cardCnt;
+  cardTemplate.content.querySelector(".card-play-btn").addEventListener("click", (e) => {
+    let audio = document.getElementById("audio_track");
+    audio.src = e.target.dataset.track;
+    audio.play();
+  });
+  return cardTemplate.content;
+};
 
 const heroTpl = (id, img, artist) => `
 <div class="row my-4">
