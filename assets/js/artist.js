@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const trackListCnt = document.getElementById("track_list");
   const artistResults = await resp(url);
-  console.log(artistResults);
+
   const heroImg = document.querySelector(".hero-image");
   const artistNameCnts = document.querySelectorAll(".artist-name");
   const artistRank = document.querySelector("#rank");
+
+  const artistNavTitle = document.querySelector("#nav_play_btn span");
+  artistNavTitle.innerText = artistResults.name;
+
   heroImg.style.backgroundImage = `url(${artistResults.picture_xl})`;
   for (const name of artistNameCnts) {
     name.innerText = artistResults.name;

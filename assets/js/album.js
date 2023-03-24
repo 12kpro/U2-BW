@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const albumDuration = document.getElementById("album_duration");
   const albumName = document.getElementById("album_name");
   const albumArtistCover = document.getElementById("album_artist_cover");
+  const albumNavTitle = document.querySelector("#nav_play_btn span");
 
   const albumTrackListCnt = document.getElementById("album_tracks");
   const alumOtherCnt = document.getElementById("album_other");
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   albumDuration.innerText = toHHMMSS(albumResults.duration);
   albumName.innerText = albumResults.title;
   albumArtistCover.src = albumResults.artist.picture_small;
-
+  albumNavTitle.innerText = albumResults.title;
   for (const [i, track] of albumResults.tracks.data.entries()) {
     albumTrackListCnt.insertAdjacentHTML(
       "beforeend",
