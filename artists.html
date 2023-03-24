@@ -548,7 +548,9 @@
         </ul>
       </div>
     </div>
+    <!--  Audio Bar  -->
     <div class="d-none d-lg-flex current-track container-fluid d-flex align-items-center px-3 position-fixed bottom-0">
+      <audio id="audio_track" src="" type="audio/mp3"></audio>
       <div class="row flex-grow-1">
         <div class="col-3">
           <div class="playing d-flex justify-content-start align-items-center">
@@ -610,7 +612,7 @@
                         ></path>
                       </svg>
                     </button>
-                    <button class="border-0 bg-transparent">
+                    <button id="forward" class="border-0 bg-transparent">
                       <svg
                         role="img"
                         height="16"
@@ -626,16 +628,36 @@
                     </button>
                   </div>
                   <button
-                    class="border-0 bg-white text-black rounded-circle d-flex justify-content-center align-items-center"
+                    class="btn_play border-0 bg-white text-black rounded-circle d-flex justify-content-center align-items-center"
                   >
-                    <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                    <svg
+                      role="play"
+                      height="16"
+                      width="16"
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      data-encore-id="icon"
+                    >
                       <path
                         d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
                       ></path>
                     </svg>
+                    <svg
+                      role="pause"
+                      height="16"
+                      width="16"
+                      aria-hidden="true"
+                      viewBox="0 0 16 16"
+                      data-encore-id="icon"
+                      class="d-none"
+                    >
+                      <path
+                        d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
+                      ></path>
+                    </svg>
                   </button>
                   <div class="d-flex gap-2">
-                    <button class="border-0 bg-transparent">
+                    <button id="backward" class="border-0 bg-transparent">
                       <svg
                         role="img"
                         height="16"
