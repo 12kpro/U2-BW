@@ -3,6 +3,8 @@ const artists = ["queen", "nek", "3 doors down", "metallica"];
 document.addEventListener("DOMContentLoaded", async () => {
   volumeBarInit('.current-track__options__vol input[type="range"]');
 
+  let player = new AudioControls("audio_track");
+
   const searchCnt = document.getElementById("search_cnt");
   const searchInputCnt = document.getElementById("search_input");
   const searchInput = searchInputCnt.querySelector("input");
@@ -32,5 +34,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   //randomContent(artists, "artist", 10);
   buildSection("Album", artists, "album", 15);
   buildSection("Artisti", artists, "artists", 12);
-  buildSection("Suggeriti", artists, "album", 8);
+  //  buildSection("Suggeriti", artists, "album", 8);
 });

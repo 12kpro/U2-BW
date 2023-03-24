@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <script src="./assets/js/utils.js"></script>
+    <script src="./assets/js/player.js"></script>
   </head>
   <body>
     <div class="container-fluid position-fixed h-100">
@@ -274,7 +275,8 @@
               </div>
             </div>
             <div class="row mb-4">
-              <div id="randomSection" class="col-12">
+              <div id="randomSection" class="col-12 position-relative">
+                <div class="loader"><div></div><div></div><div></div></div>
                 <div class="row">
                   <div class="col-12">
                     <div id="search_cnt" class="row row-cols-1  row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gx-4 gy-3 mb-4">
@@ -479,7 +481,7 @@
                         ></path>
                       </svg>
                     </button>
-                    <button class="border-0 bg-transparent">
+                    <button id="backward"class="border-0 bg-transparent">
                       <svg
                         role="img"
                         height="16"
@@ -494,7 +496,7 @@
                       </svg>
                     </button>
                   </div>
-                  <button
+                  <button id="play"
                     class="border-0 bg-white text-black rounded-circle d-flex justify-content-center align-items-center"
                   >
                     <svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
@@ -504,7 +506,7 @@
                     </svg>
                   </button>
                   <div class="d-flex gap-2">
-                    <button class="border-0 bg-transparent">
+                    <button id="forward" class="border-0 bg-transparent">
                       <svg
                         role="img"
                         height="16"

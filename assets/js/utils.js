@@ -67,6 +67,10 @@ const resp = async (url, method, body) => {
     console.log(error.id, error.status, error.statusMsg);
     return [];
   } finally {
+    const loaders = document.querySelectorAll(".loader");
+    for (const loader of loaders) {
+      loader.classList.add("d-none");
+    }
   }
 };
 
@@ -275,17 +279,6 @@ const buildSection = async (title, artistList, cardType, qty) => {
   }
 
   mainCnt.append(newTemplate.content);
-  /*
-  let newCard = "";
-  for (const card of await randomContent(artists, qty)) {
-    if (cardType === "album") {
-      newCard = cardTpl(card.album.id, "album", card.album.cover, card.album.title, "");
-    } else if (cardType === "artists") {
-      newCard = cardTpl(card.artist.id, "artists", card.artist.picture, card.artist.name, "");
-    }
-    newSection.insertAdjacentHTML("beforeend", newCard);
-  }
-*/
 };
 
 const cardTpl = (id, page, img, title, txt, play = false) => {
