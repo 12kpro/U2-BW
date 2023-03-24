@@ -4,22 +4,37 @@ class AudioControls {
     this.btnBackward = document.getElementById("backward");
     this.btnShuffle = document.getElementById("shuffle");
     this.btnRepeat = document.getElementById("repeat");
-    this.btnPlay = document.getElementById("play");
+    this.btnPlays = document.querySelectorAll(".btn_play");
     this.track = document.getElementById(audioEl);
-
     this.btnForward.addEventListener("click", (e) => this.forward());
     this.btnBackward.addEventListener("click", (e) => this.backward());
-    this.btnPlay.addEventListener("click", (e) => this.play());
     this.btnRepeat.addEventListener("click", (e) => this.repeat());
     this.btnShuffle.addEventListener("click", (e) => this.shuffle());
+    for (const btn of this.btnPlays) {
+      btn.addEventListener("click", (e) => this.play(e));
+    }
   }
-  play() {
+  play(e) {
     //? console.log("play") : console.log("stop");
-    if (!this.track.paused || this.track.currentTime) {
-      console.log("pause");
+
+    if (!this.track.paused) {
+      e.target.querySelector('[role="play"]').classList.add("d-none");
+      e.target.querySelector('[role="play"]').classList.remove("d-block");
+      e.target.querySelector('[role="pause"]').classList.add("d-block");
+      e.target.querySelector('[role="pause"]').classList.remove("d-none");
+      //icon.remove();
+
       this.track.pause();
     } else {
-      console.log("resume");
+      e.target.querySelector('[role="pause"]').classList.add("d-none");
+      e.target.querySelector('[role="pause"]').classList.remove("d-block");
+      e.target.querySelector('[role="play"]').classList.add("d-block");
+      e.target.querySelector('[role="play"]').classList.remove("d-none");
+
+      /*
+      e.target.querySelector('[role="img"]').remove();
+      
+      */
       this.track.play();
     }
   }
