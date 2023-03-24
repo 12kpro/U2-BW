@@ -1,0 +1,69 @@
+.hero-image {
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  contain: strict;
+  min-height: 500px;
+  display: block;
+  height: 500px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.arrow {
+  color: white;
+}
+
+.artVerificato {
+  fill: #3d91f4;
+  color: white;
+}
+.following {
+  font-size: 5px;
+}
+.gradient {
+  background: rgb(250, 249, 252);
+  background: linear-gradient(180deg, rgb(15, 17, 25) 20%, rgb(18, 18, 19) 80%);
+}
+.imgBrano {
+  width: 30px;
+}
+
+.riga {
+  &:hover {
+    background-color: rgb(40, 40, 40, 0.55);
+    transition: transform 0.3s ease-in-out;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.numero {
+  text-align: center;
+  line-height: 32px;
+  font-size: 13px;
+}
+.riga:hover svg {
+  opacity: 1;
+}
+.riga:hover .numero {
+  opacity: 0;
+}
+.riga:hover .invisiblePlay {
+  opacity: 1;
+}
+
+.imgArtista {
+  width: 55px;
+  height: 55px;
+}
+.buttonDiscografia {
+  background-color: #232323;
+}

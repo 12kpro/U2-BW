@@ -2,5 +2,8 @@
 $custom_themes: (
   "beige": #ffeeda
 );
-
+$custom_colors: (
+  "progress": #ffffff4d
+);
+$colors: map.merge($colors, $custom_colors);
 //$theme-colors: map.merge($theme-colors, $custom_themes);

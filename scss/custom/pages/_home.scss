@@ -1,0 +1,51 @@
+.nav-home {
+  height: 73px;
+}
+.card {
+  background-color: #1e1919;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  & .card-body {
+    min-height: 80px;
+  }
+  & .card-play-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 14px;
+    right: 26px;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateY(8px);
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    & .card-play-btn {
+      opacity: 1;
+      transform: translateY(0);
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}
+
+.welcome {
+  &__card {
+    background-color: #413d3d;
+  }
+}
+
+.hero {
+  & img {
+    width: 232px;
+    height: 232px;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  }
+}
+.playMobile {
+  background-color: #282828;
+}
+.gradient2 {
+  background: rgba(255, 255, 255, 0);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.35) 20%, rgba(18, 18, 18, 0.2) 40%, rgba(18, 18, 18, 1) 100%);
+}

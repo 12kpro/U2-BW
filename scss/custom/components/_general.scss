@@ -1,0 +1,156 @@
+.scroll-small {
+  overflow-y: overlay;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #00000000;
+  }
+  &::-webkit-scrollbar-track {
+    background: #00000000;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #898989;
+  }
+}
+
+.logo {
+  max-width: 131px;
+}
+.xsmall {
+  font-size: $xsmall-font-size;
+}
+button,
+a {
+  color: $secondary-text;
+  padding: unset;
+  & svg {
+    fill: currentcolor;
+    pointer-events: none;
+  }
+  &:hover {
+    color: $white;
+  }
+}
+
+.bg-main {
+  background-color: $bg-main;
+}
+
+.btn-social {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #292929;
+  &:hover {
+    background-color: #727272;
+  }
+}
+.btn-custom {
+  width: 32px;
+  height: 32px;
+  color: $secondary-text;
+  & svg {
+    fill: currentcolor;
+    pointer-events: none;
+  }
+  &:hover {
+    color: $white;
+  }
+}
+
+a {
+  &:hover {
+    div {
+      opacity: 1;
+    }
+  }
+  div {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7;
+    transition: opacity 0.2s linear;
+    &.playlist {
+      background: $white;
+      color: #000;
+    }
+    &.like {
+      background: linear-gradient(135deg, #450af5, #c4efd9);
+    }
+  }
+}
+.playlist {
+  &__track {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.navbar {
+  //height: 73px;
+  & .btn-nav-play {
+    transition-duration: 33ms;
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+}
+.footer {
+  a {
+    text-decoration: none;
+    color: #a7a7a7;
+    &:hover {
+      color: $white;
+      text-decoration: underline;
+    }
+  }
+}
+#randomSection {
+  min-height: 450px;
+  .loader {
+    display: inline-block;
+    //position: relative;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    & div {
+      display: inline-block;
+      position: absolute;
+      left: 8px;
+      width: 16px;
+      background: $success;
+      animation: loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+      &:nth-child(1) {
+        left: 8px;
+        animation-delay: -0.24s;
+      }
+      &:nth-child(2) {
+        left: 32px;
+        animation-delay: -0.12s;
+      }
+      &:nth-child(3) {
+        left: 56px;
+        animation-delay: 0;
+      }
+    }
+  }
+}
+@keyframes loader {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}

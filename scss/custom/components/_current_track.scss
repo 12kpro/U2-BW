@@ -1,0 +1,118 @@
+.playing {
+  &__art {
+    width: 56px;
+    height: 56px;
+  }
+  &__song {
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.current-track {
+  height: 90px;
+  z-index: 1;
+  & button {
+    line-height: 1;
+  }
+  & .progress {
+    height: 0.25rem;
+  }
+  &__actions {
+    & button {
+      width: 32px;
+      height: 32px;
+      position: relative;
+      &.active {
+        &::after {
+          background-color: currentcolor;
+          border-radius: 50%;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 4px;
+          left: 50%;
+          position: absolute;
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+          width: 4px;
+        }
+      }
+    }
+    & > button {
+      transition: none 33ms cubic-bezier(0.3, 0, 0.7, 1);
+      transition-property: all;
+      &:hover {
+        transform: scale(1.06);
+        -webkit-transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+        transition: none 33ms cubic-bezier(0.3, 0, 0, 1);
+        -webkit-transition-property: all;
+        transition-property: all;
+      }
+    }
+  }
+  &__progress {
+    .progress {
+      background-color: $bg-progress;
+    }
+  }
+  &__options {
+    &__vol {
+      flex-basis: 125px;
+      input[type="range"] {
+        --bg-range: linear-gradient(
+          to right,
+          var(--bs-light),
+          var(--bs-light) 0%,
+          var(--bs-progress) 0%,
+          var(--bs-progress) 100%
+        );
+        --bg-range-hover: linear-gradient(
+          to right,
+          var(--bs-success),
+          var(--bs-success) 0%,
+          var(--bs-progress) 0%,
+          var(--bs-progress) 100%
+        );
+        width: 93px;
+        flex-shrink: 1;
+        flex-grow: 1;
+        appearance: none;
+        height: 0.25rem;
+        border-radius: 6px;
+        background: var(--bg-range);
+        outline: none;
+        padding: 0;
+        margin: 0;
+        //&::-moz-range-thumb
+        &::-webkit-slider-thumb {
+          display: none;
+        }
+        &:hover {
+          background: var(--bg-range-hover);
+          //&::-moz-range-thumb
+          &::-webkit-slider-thumb {
+            display: block;
+            appearance: none;
+            width: 0.8rem;
+            height: 0.8rem;
+            border-radius: 50%;
+            background: $light;
+            cursor: pointer;
+            -webkit-transition: background 0.15s ease-in-out;
+            transition: background 0.15s ease-in-out;
+          }
+        }
+      }
+    }
+    button {
+      &:last-child {
+      }
+    }
+  }
+}

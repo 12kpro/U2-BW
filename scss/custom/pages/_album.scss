@@ -1,0 +1,62 @@
+.main {
+  background-color: #7c082f;
+}
+.arrow {
+  background-color: rgba(6, 0, 17, 0.55);
+  width: 32px;
+  height: 32px;
+}
+.svgProfilo {
+  background-color: #535353;
+  padding: 3px;
+}
+.profileButton {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 170px;
+}
+.profileButton:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+.albumImg {
+  object-fit: fill;
+  width: 220px;
+}
+.imgArtista {
+  width: 15px;
+  height: 15px;
+}
+
+.download i {
+  width: 30px;
+  height: 30px;
+}
+.gradient1 {
+  background: rgba(255, 255, 255, 0);
+  background: linear-gradient(180deg, rgba(18, 18, 18, 0.55) 2%, rgba(18, 18, 18, 0.62) 4%, rgba(18, 18, 18, 1) 10%);
+}
+.riga {
+  &:hover {
+    background-color: rgb(40, 40, 40, 0.55);
+    transition: transform 0.3s ease-in-out;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.numero {
+  text-align: center;
+  line-height: 32px;
+}
+.riga:hover svg {
+  opacity: 1;
+}
+.riga:hover .numero {
+  opacity: 0;
+}
+.riga:hover .invisiblePlay {
+  opacity: 1;
+}
