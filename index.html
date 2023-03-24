@@ -119,7 +119,7 @@
             <p class="small playlist__track py-1 m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
-        <div class="col-12 col-lg-8 overflow-auto h-100 scroll-small p-0">
+        <div id="main" class="col-12 col-lg-8 overflow-auto h-100 scroll-small p-0">
           <div class="container-fluid">
             <nav class="navbar navbar-expand-lg align-items-center sticky-top d-none d-md-flex">
               <ul class="nav me-auto mb-2 mb-lg-0 d-flex align-items-center flex-grow-1">
@@ -761,6 +761,18 @@
       crossorigin="anonymous"
     ></script>
     <script src="assets/js/index.js"></script>
+
+    <!-- <script>
+      const navbar = document.getElementById("#main");
+      navbar.addEventListener("scroll", (e) => {
+        if (event.target.e.scrollY > 0) {
+          navbar.classList.add("bg-dark");
+        } else {
+          navbar.style.background = "trasparent";
+          navbar.classList.remove("bg-dark");
+        }
+      });
+    </script> -->
   </body>
 </html>
 <!--
