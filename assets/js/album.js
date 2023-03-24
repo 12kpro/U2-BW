@@ -19,19 +19,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let albumResults = await resp(url);
   console.log(albumResults);
+  //console.log();
 
   albumCover.src = albumResults.cover_medium;
   albumArtist.innerText = albumResults.artist.name;
-  albumYear.innerText = albumResults.release_date; // fix per anno da data
+  albumArtist.href = `./artists.html?id=${albumResults.artist.id}`;
+  albumYear.innerText = new Date(albumResults.release_date).getFullYear();
   albumNumTracks.innerText = albumResults.nb_tracks;
-  albumDuration.innerText = albumResults.duration; // fix per hh:mm:ss
+  albumDuration.innerText = toHHMMSS(albumResults.duration);
   albumName.innerText = albumResults.title;
   albumArtistCover.src = albumResults.artist.picture_small;
 
   for (const [i, track] of albumResults.tracks.data.entries()) {
     albumTrackListCnt.insertAdjacentHTML(
       "beforeend",
-      trackAlbumTpl(i + 1, track.title_short, track.artist.name, track.duration)
+      trackAlbumTpl(i + 1, track.title_short, track.artist.name, toHHMM(track.duration), track.preview)
     );
   }
   const suggestedUrl = `${BASE_URL}search?q=${albumResults.artist.name}`;
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   for (const album of suggestedList.data) {
     alumOtherCnt.insertAdjacentHTML(
       "beforeend",
-      cardTpl(album.id, "album", album.album.cover, album.title_short, album.title_version)
+      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
     );
   }
 });

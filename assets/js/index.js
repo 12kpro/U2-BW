@@ -1,9 +1,6 @@
-const URLParams = new URLSearchParams(window.location.search);
-const pageType = URLParams.get("page");
-const id = URLParams.get("id");
+const artists = ["queen", "nek", "3 doors down", "metallica"];
 
-console.log(pageType, id);
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   volumeBarInit('.current-track__options__vol input[type="range"]');
 
   const searchCnt = document.getElementById("search_cnt");
@@ -28,8 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const album of searchResults.data) {
       searchCnt.insertAdjacentHTML(
         "beforeend",
-        cardTpl(album.id, "album", album.album.cover, album.title_short, album.title_version)
+        cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
       );
     }
   });
+
+  //randomContent(artists, "artist", 10);
+  buildSection("Album", artists, "album", 15);
+  buildSection("Artisti", artists, "artists", 12);
+  buildSection("Suggeriti", artists, "album", 8);
 });

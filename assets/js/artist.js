@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(track);
     trackListCnt.insertAdjacentHTML(
       "beforeend",
-      trackTpl(i + 1, track.album.cover, track.title_short, track.rank, track.duration)
+      trackTpl(i + 1, track.album.cover, track.title_short, track.rank, toHHMM(track.duration), track.preview)
     );
   }
   const albumCnt = document.getElementById("artist_album");
@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   for (const album of suggestedList.data) {
     albumCnt.insertAdjacentHTML(
       "beforeend",
-      cardTpl(album.id, "album", album.album.cover, album.title_short, album.title_version)
+      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
     );
     suggestedCnt.insertAdjacentHTML(
       "beforeend",
-      cardTpl(album.id, "album", album.album.cover, album.title_short, album.title_version)
+      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version)
     );
   }
 });

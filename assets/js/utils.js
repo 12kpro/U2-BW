@@ -9,7 +9,7 @@ class CustomMsg {
     { code: "PUT", txt: "updated" },
     { code: "DELETE", txt: "deleted" },
     { code: "EMPTY", txt: "no data retrived" },
-    { code: "PIERLUIGI", txt: "Ciao pier" },
+    { code: "PIERLUIGI", txt: "Ciao pier" }
   ];
   static getTxt(code) {
     const msg = this.messages.find((item) => item.code === code);
@@ -49,9 +49,9 @@ const resp = async (url, method, body) => {
     method,
     headers: {
       //      Authorization: AUHT_KEY,
-      "Content-Type": "application/json; charset=utf-8", //fetch imposta di default application/json ????
+      "Content-Type": "application/json; charset=utf-8" //fetch imposta di default application/json ????
     },
-    body,
+    body
   };
   try {
     const response = await fetch(url, params);
@@ -157,7 +157,7 @@ const volumeBarInit = (el) => {
   let options = {
     min: 1,
     max: 100,
-    cur: 50, //prelevare da localstorage???
+    cur: 50 //prelevare da localstorage???
   };
 
   if (rangeElement) {
@@ -181,12 +181,119 @@ const randomImg = (imgs) => {
   return imgs[rand];
 };
 
+const randomContent = async (artists, type, qty) => {
+  let list = [];
+  for (const artist of artists) {
+    const url = `${BASE_URL}search?q=${artist}`;
+    let results = await resp(url);
+    list = list.concat(results.data);
+  }
+
+  let album = [];
+  let artist = [];
+
+  for (const item of list) {
+    album.push(item.album);
+    artist.push(item.artist);
+  }
+
+  //rimuove duplicati
+  album = [...new Map(album.map((v) => [v.id, v])).values()];
+  artist = [...new Map(artist.map((v) => [v.id, v])).values()];
+
+  let content = [];
+  for (let i = 0; i < qty; i++) {
+    if (type === "album") {
+      const rand = Math.floor(Math.random() * album.length);
+      content.push(album[rand]);
+    } else if (type === "artists") {
+      const rand = Math.floor(Math.random() * artist.length);
+      content.push(artist[rand]);
+    }
+  }
+  return content;
+};
+
+const toHHMMSS = (duration) => {
+  var seconds = parseInt(duration, 10);
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds - hours * 3600) / 60);
+  seconds = seconds - hours * 3600 - minutes * 60;
+
+  if (hours > 0) {
+    hours = hours < 10 ? hours.toString().padStart(2, "0") : hour;
+    hours = `${hours} hour, `;
+  }
+  if (minutes > 0) {
+    minutes = minutes < 10 ? minutes.toString().padStart(2, "0") : minutes;
+    minutes = `${minutes} min, `;
+  }
+  if (seconds > 0) {
+    seconds = seconds < 10 ? seconds.toString().padStart(2, "0") : seconds;
+    seconds = `${seconds} sec,`;
+  }
+  return `${hours}${minutes}${seconds}`;
+};
+
+const toHHMM = (duration) => {
+  var seconds = parseInt(duration, 10);
+  var hours = Math.floor(seconds / 3600);
+  var minutes = Math.floor((seconds - hours * 3600) / 60);
+  seconds = seconds - hours * 3600 - minutes * 60;
+
+  if (minutes > 0) {
+    minutes = minutes < 10 ? minutes.toString().padStart(2, "0") : minutes;
+  }
+  if (seconds > 0) {
+    seconds = seconds < 10 ? seconds.toString().padStart(2, "0") : seconds;
+  }
+  return `${minutes}:${seconds}`;
+};
+
+const buildSection = async (title, artistList, cardType, qty) => {
+  const mainCnt = document.getElementById("randomSection");
+  const newTemplate = document.createElement("template");
+  newTemplate.innerHTML = `
+  <div class="row">
+  <div class="col-12">
+    <h2 class="section_title mb-4">${title}</h2>
+  </div>
+  </div>
+  <div class="section_container row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gx-4 gy-3 mb-4">
+  </div>
+  `;
+  const newSection = newTemplate.content.querySelector(".section_container");
+
+  if (cardType === "album") {
+    for (const album of await randomContent(artistList, cardType, qty)) {
+      newSection.insertAdjacentHTML("beforeend", cardTpl(album.id, "album", album.cover, album.title, ""));
+    }
+  } else if (cardType === "artists") {
+    for (const artist of await randomContent(artistList, cardType, qty)) {
+      newSection.insertAdjacentHTML("beforeend", cardTpl(artist.id, "artists", artist.picture, artist.name, ""));
+    }
+  }
+
+  mainCnt.append(newTemplate.content);
+  /*
+  let newCard = "";
+  for (const card of await randomContent(artists, qty)) {
+    if (cardType === "album") {
+      newCard = cardTpl(card.album.id, "album", card.album.cover, card.album.title, "");
+    } else if (cardType === "artists") {
+      newCard = cardTpl(card.artist.id, "artists", card.artist.picture, card.artist.name, "");
+    }
+    newSection.insertAdjacentHTML("beforeend", newCard);
+  }
+*/
+};
+
 const cardTpl = (id, page, img, title, txt) => `
 <div class="col">
   <div class="card border-0 text-light">
         <div class="p-3 pb-1 rounded-3 position-relative">
           <img src="${img}" class="card-img img-fluid"  alt="pic">
-          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./album.html?id=${id}">
+          <a class="card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" href="./${page}.html?id=${id}">
               <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                 <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
               </svg>
@@ -200,7 +307,7 @@ const cardTpl = (id, page, img, title, txt) => `
 </div>
 `;
 
-const heroTpl = (id, page, img, artist) => `
+const heroTpl = (id, img, artist) => `
 <div class="row my-4">
 <div class="col-12">
   <div class="hero d-flex justify-content-center justify-content-md-start px-4 py-3 bg-black bg-opacity-75">
@@ -218,26 +325,26 @@ const heroTpl = (id, page, img, artist) => `
 </div>
 </div>
 `;
-const trackTpl = (num, img, title, rank, duration) => `
-<div class="row my-2 riga rounded my-4 align-items-center">
+const trackTpl = (num, img, title, rank, duration, filepath) => `
+<div class=" track_play row my-2 riga rounded my-4 align-items-center" data-filepath="${filepath}">
 <div class="col-6 d-flex flex-wrap align-items-center p-0">
-        <div class="position-relative d-none d-md-block">
-        <span class="btn-custom numero position-absolute">${num}</span>
-        <button class="btn-custom bg-transparent border-0">
-          <svg
-            role="img"
-            height="16"
-            width="16"
-            opacity="0"
-            aria-hidden="true"
-            viewBox="0 0 16 16"
-            data-encore-id="icon"
-          >
-            <path
-              d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-            ></path>
-          </svg>
-        </button>
+        <div class=" position-relative d-none d-md-block">
+          <span class="btn-custom numero position-absolute">${num}</span>
+          <button class="btn-custom bg-transparent border-0">
+            <svg
+              role="img"
+              height="16"
+              width="16"
+              opacity="0"
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              data-encore-id="icon"
+            >
+              <path
+                d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+              ></path>
+            </svg>
+          </button>
         </div>
 
   <div class="d-flex flex-row align-items-center p-0">
@@ -297,8 +404,8 @@ const trackTpl = (num, img, title, rank, duration) => `
 </div>
 `;
 
-const trackAlbumTpl = (num, title, artist, duration) => `
-<div class="row d-flex align-items-center pb-3 riga">
+const trackAlbumTpl = (num, title, artist, duration, filepath) => `
+<div class="track_play row d-flex align-items-center py-2 riga" data-filepath="${filepath}">
 <div class="col-4 d-flex flex-row align-items-center">
   <div class="position-relative d-none d-md-block">
     <span class="btn-custom numero position-absolute">${num}</span>
@@ -398,7 +505,7 @@ const mainImg = [
   "main/image-2.jpg",
   "main/image-4.jpg",
   "main/image-6.jpg",
-  "main/image-8.jpg",
+  "main/image-8.jpg"
 ];
 
 const searchImg = [
@@ -453,5 +560,5 @@ const searchImg = [
   "search/image-45.png",
   "search/image-49.jpg",
   "search/image-52.jpg",
-  "search/image-9.jpg",
+  "search/image-9.jpg"
 ];
