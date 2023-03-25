@@ -2,15 +2,12 @@ class AudioControls {
   constructor(audioEl) {
     this.volumeSettings = {
       defaut: 20,
-      min: 1,
+      min: 0,
       max: 100,
-      mute: {
-        set: false,
-        value: 0
-      }
+      beforeMute: 0
     };
     this.progressSettings = {
-      defaut: 0,
+      defaut: 1,
       min: 0,
       max: 100
     };
@@ -50,26 +47,30 @@ class AudioControls {
       btn.addEventListener("click", (e) => this.playToggle(e));
     }
     this.updateVolumeRange(this.volume);
+    //this.setTrack();
   }
   setTrack(trakUrl) {
     if (this.track) {
       this.track.setAttribute("src", trakUrl); //change the source
       this.track.load();
     } else {
+      //this.track = new Audio("https://cdns-preview-8.dzcdn.net/stream/c-8cfdb66060be261506956daf322d8a20-4.mp3");
       this.track = new Audio(trakUrl);
     }
 
-    this.updatePlayerControlState();
     this.track.addEventListener("canplaythrough", (event) => {
-      this.progressSettings.max = this.track.duration;
+      this.duration.innerHTML = this.formatTime(this.track.duration);
+      this.track.volume = this.volume.value / 100;
       this.track.play();
+      this.updatePlayerControlState();
     });
     this.track.addEventListener("ended", (event) => {
       console.log("finita");
     });
     this.track.addEventListener("timeupdate", (e) => {
-      //const { duration, currentTime } = e.srcElement;
-      //console.log(duration, currentTime);
+      let percentage = this.track.currentTime / this.track.duration;
+      this.progress.value = percentage * 100;
+      this.updateRange(this.progress, percentage);
     });
   }
   async setPlaylist(url) {
@@ -86,11 +87,11 @@ class AudioControls {
         this.volume.disabled = false;
         this.btnVolume.disabled = false;
         this.progress.disabled = false;
+        this.btnRepeat.disabled = false;
         if (playlist) {
           this.btnForward.disabled = false;
           this.btnBackward.disabled = false;
           this.btnShuffle.disabled = false;
-          this.btnRepeat.disabled = false;
         }
       } else {
         for (const btn of this.btnPlays) {
@@ -108,16 +109,11 @@ class AudioControls {
     }
   }
   playToggle(e) {
-    console.log("play");
-    const use = e.target.querySelector("use");
-    use.setAttribute("href", "#pause");
-    if (!this.track.paused) {
-      use.setAttribute("href", "#pause");
-      this.track.pause();
-    } else {
-      use.setAttribute("href", "#play");
-      this.track.play();
+    for (const btn of this.btnPlays) {
+      const use = btn.querySelector("use");
+      this.track.paused ? use.setAttribute("href", "#pause") : use.setAttribute("href", "#play");
     }
+    this.track.paused ? this.track.play() : this.track.pause();
   }
   backward(e) {
     console.log("avanti");
@@ -132,31 +128,35 @@ class AudioControls {
   repeat(e) {
     e.target.classList.toggle("active");
     e.target.classList.toggle("text-success");
+    this.track.loop = this.track.loop ? false : true;
+    console.log(this.track.loop);
   }
   muteToggle(e) {
-    if (this.volumeSettings.mute.set) {
-      this.volumeSettings.mute.set = false;
+    if (this.track.muted) {
+      this.volume.disabled = false;
       this.track.muted = false;
-      this.volumeSettings.mute.value = 0;
-      this.volume.value = this.volumeSettings.mute.set;
+      this.volume.value = this.volumeSettings.beforeMute;
+      this.volumeSettings.beforeMute = 0;
     } else {
-      this.volumeSettings.mute.set = true;
+      this.volume.disabled = true;
       this.track.muted = true;
-      this.volumeSettings.mute.value = this.volume.value;
+      this.volumeSettings.beforeMute = this.volume.value;
       this.volume.value = 0;
     }
     this.updateVolumeRange(this.volume);
   }
 
   volumeMouseWheel(e) {
-    let rangeValue = parseInt(this.volume.value);
-    if (e.deltaY < 0) {
-      rangeValue += 1;
-    } else {
-      rangeValue -= 1;
+    if (!e.target.disabled) {
+      let rangeValue = parseInt(this.volume.value);
+      if (e.deltaY < 0) {
+        rangeValue += 1;
+      } else {
+        rangeValue -= 1;
+      }
+      this.volume.value = rangeValue;
+      this.updateVolumeRange(e.target);
     }
-    this.volume.value = rangeValue;
-    this.updateVolumeRange();
   }
 
   updateRange(el, percent) {
@@ -177,11 +177,8 @@ class AudioControls {
   updateTrackProgress(e) {
     let percentage = this.percentageRange(e.target, "progressSettings");
     if (this.track) {
-      this.track.pause();
-      this.track.currentTime = e.target.value;
-      this.track.play();
+      this.track.currentTime = percentage * this.track.duration;
     }
-    console.log(e.target.value);
     this.updateRange(e.target, percentage);
   }
 
@@ -191,33 +188,13 @@ class AudioControls {
     }
     return (el.value - this[settings].min) / (this[settings].max - this[settings].min);
   }
-  /*volumePercentage(el) {
-    if (this.volume.value === this.volumeSettings.min) {
-      return;
-    }
-    return (this.volume.value - this.volumeSettings.min) / (this.volumeSettings.max - this.volumeSettings.min);
-  }*/
   updateVolumeRange(el) {
     let percentage = this.percentageRange(el, "volumeSettings");
     if (this.track) {
       this.track.volume = percentage;
     }
-    console.log(percentage);
     this.updateRange(el, percentage);
-    //let btn = this.volume.previousElementSibling;
-    /*e.target.style.setProperty(
-      "--bg-range",
-      `linear-gradient(to right, var(--bs-light), var(--bs-light) ${percentage * 100}%, var(--bs-progress) ${
-        percentage * 100
-      }%, var(--bs-progress) 100%)`
-    );
-    e.target.style.setProperty(
-      "--bg-range-hover",
-      `linear-gradient(to right, var(--bs-success), var(--bs-success) ${percentage * 100}%, var(--bs-progress) ${
-        percentage * 100
-      }%, var(--bs-progress) 100%)`
-    );
-*/
+
     const use = this.btnVolume.querySelector("use");
     if (percentage >= 0.6 && this.btnVolume.dataset.vol !== "max") {
       use.setAttribute("href", "#vol-max");
@@ -233,88 +210,18 @@ class AudioControls {
       this.btnVolume.dataset.vol = "muted";
     }
   }
-}
+  formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
 
-/*
-class Slider {
-  constructor(rangeElement, options) {
-    this.rangeElement = rangeElement;
-    this.options = options;
-    this.mute = {
-      set: false,
-      value: 0
-    };
-    this.btn = this.rangeElement.previousElementSibling;
-
-    // Attach a listener to "change" event
-    this.rangeElement.addEventListener("input", (e) => this.updateSlider(e));
-    this.rangeElement.addEventListener("wheel", (e) => this.mouseWheel(e));
-    this.btn.addEventListener("click", (e) => this.muteToggle());
-    this.init();
-  }
-
-  // Initialize the slider
-  init() {
-    this.rangeElement.setAttribute("min", this.options.min);
-    this.rangeElement.setAttribute("max", this.options.max);
-    this.rangeElement.value = this.options.cur;
-    this.updateSlider();
-  }
-
-  generateBackground() {
-    if (this.rangeElement.value === this.options.min) {
-      return;
+    if (minutes < 10) {
+      minutes = "0" + minutes;
     }
-    return ((this.rangeElement.value - this.options.min) / (this.options.max - this.options.min)) * 100;
-  }
-  muteToggle() {
-    if (this.mute.set) {
-      this.mute.set = false;
-      this.mute.value = 0;
-      this.rangeElement.value = this.mute.set;
-    } else {
-      this.mute.set = true;
-      this.mute.value = this.rangeElement.value;
-      this.rangeElement.value = 0;
-    }
-    this.updateSlider();
-  }
-  mouseWheel(e) {
-    let rangeValue = parseInt(this.rangeElement.value);
-    if (e.deltaY < 0) {
-      rangeValue += 1;
-    } else {
-      rangeValue -= 1;
-    }
-    this.rangeElement.value = rangeValue;
-    this.updateSlider();
-  }
-  updateSlider(e) {
-    let percentage = this.generateBackground(this.rangeElement.value);
-    let btn = this.rangeElement.previousElementSibling;
-    this.rangeElement.style.setProperty(
-      "--bg-range",
-      `linear-gradient(to right, var(--bs-light), var(--bs-light) ${percentage}%, var(--bs-progress) ${percentage}%, var(--bs-progress) 100%)`
-    );
-    this.rangeElement.style.setProperty(
-      "--bg-range-hover",
-      `linear-gradient(to right, var(--bs-success), var(--bs-success) ${percentage}%, var(--bs-progress) ${percentage}%, var(--bs-progress) 100%)`
-    );
 
-    const use = btn.querySelector("use");
-    if (percentage >= 60 && btn.dataset.vol !== "max") {
-      use.setAttribute("href", "#vol-max");
-      btn.dataset.vol = "max";
-    } else if (percentage < 60 && percentage >= 30 && btn.dataset.vol !== "mid") {
-      use.setAttribute("href", "#vol-mid");
-      btn.dataset.vol = "mid";
-    } else if (percentage < 30 && percentage >= 10 && btn.dataset.vol !== "low") {
-      use.setAttribute("href", "#vol-low");
-      btn.dataset.vol = "low";
-    } else if (percentage < 10 && btn.dataset.vol !== "muted") {
-      use.setAttribute("href", "#vol-muted");
-      btn.dataset.vol = "muted";
+    if (secs < 10) {
+      secs = "0" + secs;
     }
+
+    return minutes + ":" + secs;
   }
 }
-*/
