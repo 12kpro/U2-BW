@@ -1,7 +1,7 @@
 const artists = ["queen", "nek", "3 doors down", "metallica"];
 
 document.addEventListener("DOMContentLoaded", async () => {
-  volumeBarInit('.current-track__options__vol input[type="range"]');
+  //volumeBarInit('.current-track__options__vol input[type="range"]');
 
   let player = new AudioControls("audio_track");
 
@@ -26,7 +26,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(searchResults);
     for (const track of searchResults.data) {
       searchCnt.append(
-        cardTpl(track.album.id, "album", track.album.cover, track.title_short, track.title_version, track.preview)
+        cardTpl(
+          track.album.id,
+          "album",
+          track.album.cover,
+          track.title_short,
+          track.title_version,
+          player,
+          track.preview
+        )
       );
     }
   });
