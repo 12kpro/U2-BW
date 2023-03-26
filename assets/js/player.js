@@ -1,5 +1,5 @@
 class AudioControls {
-  constructor(audioEl) {
+  constructor(playList) {
     this.volumeSettings = {
       defaut: 20,
       min: 0,
@@ -19,10 +19,17 @@ class AudioControls {
     this.volume = document.querySelector('.current-track__options__vol input[type="range"]');
     this.duration = document.querySelector(".current-track__progress__finish");
     this.progress = document.querySelector('.current-track__progress input[type="range"]');
-    console.log(this.progress);
+
+    this.albumImage = document.querySelectorAll(".playing__art img");
+    this.trackName = document.querySelectorAll(".playing__song__name");
+    this.trackArtist = document.querySelectorAll(".playing__song__artist");
+
     this.btnVolume = this.volume.previousElementSibling;
-    this.track;
-    this.playList;
+    this.playList = playList;
+    this.playListCurrentTrack = 0;
+    this.shufflePlayTrack = false;
+    this.track = new Audio();
+
     //https://cdns-preview-8.dzcdn.net/stream/c-8cfdb66060be261506956daf322d8a20-4.mp3
     this.volume.value = this.volumeSettings.defaut;
     this.volume.setAttribute("min", this.volumeSettings.min);
@@ -44,28 +51,31 @@ class AudioControls {
     this.btnShuffle.addEventListener("click", (e) => this.shuffle(e));
 
     for (const btn of this.btnPlays) {
-      btn.addEventListener("click", (e) => this.playToggle(e));
+      btn.addEventListener("click", () => this.playToggle());
     }
     this.updateVolumeRange(this.volume);
-    //this.setTrack();
+    console.log(this.playList);
+    if (this.playList.length > 0) this.updatePlayerControlState();
   }
-  setTrack(trakUrl) {
-    if (this.track) {
-      this.track.setAttribute("src", trakUrl); //change the source
-      this.track.load();
-    } else {
-      //this.track = new Audio("https://cdns-preview-8.dzcdn.net/stream/c-8cfdb66060be261506956daf322d8a20-4.mp3");
-      this.track = new Audio(trakUrl);
-    }
+  setTrack(trakUrl, image, trackName, trackArtist) {
+    this.track.setAttribute("src", trakUrl);
+    this.track.load();
 
     this.track.addEventListener("canplaythrough", (event) => {
       this.duration.innerHTML = this.formatTime(this.track.duration);
+      this.updateTrackInfo(image, trackName, trackArtist);
       this.track.volume = this.volume.value / 100;
       this.track.play();
       this.updatePlayerControlState();
     });
     this.track.addEventListener("ended", (event) => {
-      console.log("finita");
+      console.log(this.playListCurrentTrack);
+      if (this.playListCurrentTrack < this.playList.length - 1) {
+        this.autoPlay();
+        this.playListCurrentTrack > 0 ? (this.btnBackward.disabled = false) : (this.btnBackward.disabled = true);
+      } else {
+        this.playToggle();
+      }
     });
     this.track.addEventListener("timeupdate", (e) => {
       let percentage = this.track.currentTime / this.track.duration;
@@ -73,12 +83,9 @@ class AudioControls {
       this.updateRange(this.progress, percentage);
     });
   }
-  async setPlaylist(url) {
-    this.playList = await resp(url);
-  }
 
-  updatePlayerControlState(playlist = false, ended = false) {
-    if (typeof playlist == "boolean" && typeof ended == "boolean") {
+  updatePlayerControlState(ended = false) {
+    if (this.playList.length > 0 && typeof ended == "boolean") {
       if (!ended) {
         for (const btn of this.btnPlays) {
           btn.disabled = false;
@@ -88,9 +95,9 @@ class AudioControls {
         this.btnVolume.disabled = false;
         this.progress.disabled = false;
         this.btnRepeat.disabled = false;
-        if (playlist) {
+        if (this.playList.length > 0) {
           this.btnForward.disabled = false;
-          this.btnBackward.disabled = false;
+          //this.btnBackward.disabled = false;
           this.btnShuffle.disabled = false;
         }
       } else {
@@ -108,28 +115,95 @@ class AudioControls {
       }
     }
   }
-  playToggle(e) {
+  playToggle(track) {
+    console.log(track);
+    let nextTrack = {};
+    if (this.playList.length > 0) {
+      if (track) {
+        track--;
+        nextTrack = this.playList[track];
+        this.playListCurrentTrack = track;
+        track > 0 ? (this.btnBackward.disabled = false) : (this.btnBackward.disabled = true);
+      } else if (!this.track.currentTime) {
+        nextTrack = this.playList[this.playListCurrentTrack];
+      }
+    }
+
+    if (nextTrack.readable) {
+      this.setTrack(
+        nextTrack.preview,
+        nextTrack.album.cover,
+        { txt: nextTrack.title, href: nextTrack.link },
+        { txt: nextTrack.artist.name, id: nextTrack.artist.id }
+      );
+    }
+
     for (const btn of this.btnPlays) {
       const use = btn.querySelector("use");
       this.track.paused ? use.setAttribute("href", "#pause") : use.setAttribute("href", "#play");
     }
-    this.track.paused ? this.track.play() : this.track.pause();
+    if (this.playListCurrentTrack < this.playList.length - 1) {
+      if (!this.track.paused || this.track.currentTime) {
+        this.track.paused ? this.track.play() : this.track.pause();
+      }
+    }
+  }
+  autoPlay() {
+    if (this.shufflePlayTrack) {
+      let rand = Math.floor(Math.random() * this.playList.length);
+      let nextTrack = this.playList[rand];
+      this.setTrack(
+        nextTrack.preview,
+        nextTrack.album.cover,
+        { txt: nextTrack.title, href: nextTrack.link },
+        { txt: nextTrack.artist.name, id: nextTrack.artist.id }
+      );
+      this.playListCurrentTrack = rand;
+    } else {
+      this.forward();
+    }
   }
   backward(e) {
-    console.log("avanti");
+    this.playListCurrentTrack--;
+    this.playListCurrentTrack > 0 ? (this.btnBackward.disabled = false) : (this.btnBackward.disabled = true);
+    if (this.playListCurrentTrack > 0) {
+      const nextTrack = this.playList[this.playListCurrentTrack];
+      this.setTrack(
+        nextTrack.preview,
+        nextTrack.album.cover,
+        { txt: nextTrack.title, href: nextTrack.link },
+        { txt: nextTrack.artist.name, id: nextTrack.artist.id }
+      );
+      console.log("indietro");
+    }
   }
   forward(e) {
-    console.log("indietro");
+    this.playListCurrentTrack++;
+    this.playListCurrentTrack > 0 ? (this.btnBackward.disabled = false) : (this.btnBackward.disabled = true);
+    this.playListCurrentTrack < this.playList.length - 1
+      ? (this.btnForward.disabled = false)
+      : (this.btnForward.disabled = true);
+    if (this.playListCurrentTrack < this.playList.length) {
+      let nextTrack = this.playList[this.playListCurrentTrack];
+      this.setTrack(
+        nextTrack.preview,
+        nextTrack.album.cover,
+        { txt: nextTrack.title, href: nextTrack.link },
+        { txt: nextTrack.artist.name, id: nextTrack.artist.id }
+      );
+
+      console.log("avanti");
+    }
   }
   shuffle(e) {
     e.target.classList.toggle("active");
     e.target.classList.toggle("text-success");
+    this.shufflePlayTrack = true;
   }
   repeat(e) {
     e.target.classList.toggle("active");
     e.target.classList.toggle("text-success");
     this.track.loop = this.track.loop ? false : true;
-    console.log(this.track.loop);
   }
   muteToggle(e) {
     if (this.track.muted) {
@@ -210,6 +284,20 @@ class AudioControls {
       this.btnVolume.dataset.vol = "muted";
     }
   }
+  updateTrackInfo(image, trackName, trackArtist) {
+    for (const playerImage of this.albumImage) {
+      playerImage.src = image;
+    }
+    for (const playerTrackName of this.trackName) {
+      playerTrackName.innerText = trackName.txt;
+      playerTrackName.setAttribute("href", trackName.link);
+    }
+    for (const playerTrackArtist of this.trackArtist) {
+      playerTrackArtist.innerText = trackArtist.txt;
+      playerTrackArtist.setAttribute("href", `./artists.html?id=${trackArtist.id}`);
+    }
+  }
+
   formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let secs = Math.floor(seconds % 60);

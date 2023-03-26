@@ -4,7 +4,6 @@ const id = URLParams.get("id") || 412;
 
 console.log(pageType, id);
 document.addEventListener("DOMContentLoaded", async () => {
-  volumeBarInit('.current-track__options__vol input[type="range"]');
   const url = `${BASE_URL}artist/${id}`;
 
   const trackListCnt = document.getElementById("track_list");
@@ -31,6 +30,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       trackTpl(i + 1, track.album.cover, track.title_short, track.rank, toHHMM(track.duration), track.preview)
     );
   }
+  let player = new AudioControls(trackList.data);
+
   const albumCnt = document.getElementById("artist_album");
   const suggestedCnt = document.getElementById("artist_suggested");
   const artistInfoImg = document.getElementById("artist_info_img");
@@ -40,7 +41,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const suggestedList = await resp(suggestedUrl);
 
   for (const album of suggestedList.data) {
-    albumCnt.append(cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version));
-    suggestedCnt.append(cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version));
+    albumCnt.append(
+      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version, player)
+    );
+    suggestedCnt.append(
+      cardTpl(album.album.id, "album", album.album.cover, album.title_short, album.title_version, player)
+    );
   }
 });

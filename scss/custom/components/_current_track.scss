@@ -4,6 +4,12 @@
     height: 56px;
   }
   &__song {
+    overflow: hidden;
+    &__name {
+      transform: translateX(100%);
+      animation: scrollleft 15s linear infinite;
+      white-space: nowrap;
+    }
     a {
       text-decoration: none;
       cursor: pointer;
@@ -116,5 +122,14 @@
         transition: background 0.15s ease-in-out;
       }
     }
+  }
+}
+
+@keyframes scrollleft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

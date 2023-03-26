@@ -641,7 +641,7 @@
                         ></path>
                       </svg>
                     </button>
-                    <button id="forward" class="border-0 bg-transparent" disabled>
+                    <button id="backward" class="border-0 bg-transparent" disabled>
                       <svg
                         role="img"
                         height="16"
@@ -682,7 +682,7 @@
                     </svg>
                   </button>
                   <div class="d-flex gap-2">
-                    <button id="backward" class="border-0 bg-transparent" disabled>
+                    <button id="forward" class="border-0 bg-transparent" disabled>
                       <svg
                         role="img"
                         height="16"
@@ -717,19 +717,19 @@
                   <div class="current-track__progress__start xsmall pe-2">00:00</div>
                   <input class="flex-shrink-0 flex-grow-1" type="range" value="0" disabled />
                   <!--<div class="flex-shrink-0 flex-grow-1">
+                  
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Info example"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
                     
-                    <div
-                      class="progress"
-                      role="progressbar"
-                      aria-label="Info example"
-                      aria-valuenow="50"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      
-                      <div class="progress-bar bg-white" style="width: 0%"></div>
-                      
-                  </div>-->
+                    <div class="progress-bar bg-white" style="width: 0%"></div>
+                    
+                </div>-->
                   <div class="current-track__progress__finish xsmall ps-2">--:--</div>
                 </div>
               </div>
@@ -810,7 +810,6 @@
       const mainCtn = document.getElementById("main");
       mainCtn.addEventListener("scroll", (e) => {
         const navbar = mainCtn.querySelector(".navbar");
-        console.log(e.target.scrollTop);
         if (e.target.scrollTop > 0) {
           navbar.classList.add("bg-dark");
           navbar.classList.remove("bg-transparent");

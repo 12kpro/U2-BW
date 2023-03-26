@@ -2,8 +2,6 @@ const URLParams = new URLSearchParams(window.location.search);
 const id = URLParams.get("id") || 75621062;
 
 document.addEventListener("DOMContentLoaded", async () => {
-  volumeBarInit('.current-track__options__vol input[type="range"]');
-
   const url = `${BASE_URL}album/${id}`;
 
   const albumCover = document.getElementById("album_cover");
@@ -19,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const alumOtherCnt = document.getElementById("album_other");
 
   let albumResults = await resp(url);
+  let player = new AudioControls(albumResults.tracks.data);
   console.log(albumResults);
   //console.log();
 
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   for (const [i, track] of albumResults.tracks.data.entries()) {
     albumTrackListCnt.insertAdjacentHTML(
       "beforeend",
-      trackAlbumTpl(i + 1, track.title_short, track.artist.name, toHHMM(track.duration), track.preview)
+      trackAlbumTpl(i + 1, track.title_short, track.artist.name, track.artist.id, toHHMM(track.duration), track.preview)
     );
   }
   const suggestedUrl = `${BASE_URL}search?q=${albumResults.artist.name}`;

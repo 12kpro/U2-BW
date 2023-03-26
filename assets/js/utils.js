@@ -175,7 +175,7 @@ const buildSection = async (title, artistList, cardType, qty) => {
   mainCnt.append(newTemplate.content);
 };
 
-const cardTpl = (id, page, img, title, txt, player, trakUrl = false) => {
+const cardTpl = (id, page, img, title, txt, player, trakId = false) => {
   const cardTemplate = document.createElement("template");
   const cardCnt = `
         <div class="col">
@@ -183,8 +183,8 @@ const cardTpl = (id, page, img, title, txt, player, trakUrl = false) => {
                 <div class="p-3 pb-1 rounded-3 position-relative">
                   <img src="${img}" class="card-img img-fluid"  alt="pic">
                     <button class="${
-                      trakUrl ? "d-block" : "d-none"
-                    } card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" data-track="${trakUrl}">
+                      trakId ? "d-block" : "d-none"
+                    } card-play-btn position-absolute border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3" data-track="${trakId}">
                       <svg role="img" height="25" width="25" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                         <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
                       </svg>
@@ -203,7 +203,10 @@ const cardTpl = (id, page, img, title, txt, player, trakUrl = false) => {
     audio.src = e.target.dataset.track;
     audio.play();
     */
-    player.setTrack(e.target.dataset.track);
+    //player.playListCurrentTrack = parseInt(e.target.dataset.track) - 1;
+    player.playToggle(parseInt(e.target.dataset.track));
+    //console.log(player.playListCurrentTrack);
+    //player.setTrack(e.target.dataset.track);
   });
   return cardTemplate.content;
 };
@@ -228,7 +231,7 @@ const heroTpl = (id, img, artist) => `
 `;
 const trackTpl = (num, img, title, rank, duration, filepath) => `
 <div class=" track_play row my-2 riga rounded my-4 align-items-center" data-filepath="${filepath}">
-<div class="col-6 d-flex flex-wrap align-items-center p-0">
+<div class="col-6 d-flex flex-wrap align-items-center">
         <div class=" position-relative d-none d-md-block">
           <span class="btn-custom numero position-absolute">${num}</span>
           <button class="btn-custom bg-transparent border-0">
@@ -305,9 +308,9 @@ const trackTpl = (num, img, title, rank, duration, filepath) => `
 </div>
 `;
 
-const trackAlbumTpl = (num, title, artist, duration, filepath) => `
-<div class="track_play row d-flex align-items-center py-2 riga" data-filepath="${filepath}">
-<div class="col-4 d-flex flex-row align-items-center">
+const trackAlbumTpl = (num, title, artist, artistId, duration, filepath) => `
+<div class="track_play row d-flex align-items-center py-2 riga border-bottom border-secondary border-opacity-10"  data-filepath="${filepath}">
+<div class="col-6 d-flex flex-row align-items-center">
   <div class="position-relative d-none d-md-block">
     <span class="btn-custom numero position-absolute">${num}</span>
     <button class="btn-custom bg-transparent border-0">
@@ -327,12 +330,12 @@ const trackAlbumTpl = (num, title, artist, duration, filepath) => `
     </button>
   </div>
 
-  <div class="px-5">
+  <div class="px-5 flex-grow-1">
     <div>${title}</div>
-    <a href="#">${artist}</a>
+    <a href="./artists.html?id=${artistId}">${artist}</a>
   </div>
 </div>
-<div class="d-none d-md-block col-1 offset-5">
+<div class="d-none d-md-block col-1 offset-3">
   <button class="cuore bg-transparent border-0">
     <svg
       role="img"
