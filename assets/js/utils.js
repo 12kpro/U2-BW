@@ -229,84 +229,109 @@ const heroTpl = (id, img, artist) => `
 </div>
 </div>
 `;
-const trackTpl = (num, img, title, rank, duration, filepath) => `
-<div class=" track_play row my-2 riga rounded my-4 align-items-center" data-filepath="${filepath}">
-<div class="col-6 d-flex flex-wrap align-items-center">
-        <div class=" position-relative d-none d-md-block">
-          <span class="btn-custom numero position-absolute">${num}</span>
-          <button class="btn-custom bg-transparent border-0">
-            <svg
-              role="img"
-              height="16"
-              width="16"
-              opacity="0"
-              aria-hidden="true"
-              viewBox="0 0 16 16"
-              data-encore-id="icon"
-            >
-              <path
-                d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-              ></path>
-            </svg>
-          </button>
-        </div>
+const trackTpl = (player, num, img, title, rank, duration) => {
+  const tpl = document.createElement("template");
+  tpl.innerHTML = `
+  <div class="border-bottom border-secondary border-opacity-10 riga py-3">
+  <div class="track_play row">
+      <div class="col-7 ">
+          <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex flex-grow-1 align-items-center">
+              <div class="position-relative d-none d-md-block">
+      
+              <button class="track_play_btn btn-custom bg-transparent border-0" data-track="${num}">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" opacity="0">
+                  <defs>
+                      <symbol id="play" viewBox="0 0 16 16">
+                      <path
+                          d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                      />
+                      </symbol>
+                      <symbol id="pause" viewBox="0 0 16 16">
+                      <path
+                          d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
+                      />
+                      </symbol>
+                      <symbol id="loader" viewBox="0 0 16 16">
+                      <path
+                          d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                      />
+                      </symbol>
+                  </defs>
+                  <use href="#play" />
+                  </svg>
+              </button>
+              <span class="btn-custom numero position-absolute">${num}</span>
+              </div>
+      
+              <div class="d-flex flex-row align-items-center p-0">
+              <div class="mx-2"><img class="imgBrano" src="${img}" /></div>
+              <span class="fs-6"><a class="text-secondary link-light text-truncate fs-6">${title}</a></span>
+              </div>
+          </div>
 
-  <div class="d-flex flex-row align-items-center p-0">
-    <div class="me-2"><img class="imgBrano" src="${img}"/></div>
-    <span class="fs-6"><a class="text-secondary link-light text-truncate fs-6">${title}</a></span>
+          </div>
+      </div>
+      <div class="col-5">
+          <div class="d-flex align-items-center justify-content-between">
+              <div class="d-none d-md-block text-start">${rank}</div>
+                  <div class="d-flex align-items-center justify-content-end">
+                      <button class="btn-custom d-none d-md-block bg-transparent border-0">
+                          <svg
+                          role="img"
+                          height="20"
+                          width="20"
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          data-encore-id="icon"
+                          class="Svg-sc-ytk21e-0 uPxdw"
+                          >
+                          <path
+                              d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
+                          ></path>
+                          </svg>
+                      </button>
+                      <button class=" btn-custom bg-transparent border-0 d-md-none">
+                          <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-three-dots-vertical"
+                          viewBox="0 0 16 16"
+                          >
+                          <path
+                              d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                          />
+                          </svg>
+                      </button>
+                      <div class="d-none d-md-block px-2">${duration}</div>
+                      <button class="btn-custom d-none d-md-block bg-transparent border-0">
+                          <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-three-dots"
+                              viewBox="0 0 16 16"
+                          >
+                              <path
+                              d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                              />
+                          </svg>
+                      </button>
+                  </div>
+          </div>
+
+      </div>
   </div>
-</div>
-<div class="d-none d-md-block offset-md-1 col-2">${rank}</div>
-<div class="col-4 col-md-1">
-  <button class="d-none d-md-block bg-transparent border-0">
-    <svg
-      role="img"
-      height="20"
-      width="20"
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      data-encore-id="icon"
-      class="Svg-sc-ytk21e-0 uPxdw"
-    >
-      <path
-        d="M5.21 1.57a6.757 6.757 0 0 1 6.708 1.545.124.124 0 0 0 .165 0 6.741 6.741 0 0 1 5.715-1.78l.004.001a6.802 6.802 0 0 1 5.571 5.376v.003a6.689 6.689 0 0 1-1.49 5.655l-7.954 9.48a2.518 2.518 0 0 1-3.857 0L2.12 12.37A6.683 6.683 0 0 1 .627 6.714 6.757 6.757 0 0 1 5.21 1.57zm3.12 1.803a4.757 4.757 0 0 0-5.74 3.725l-.001.002a4.684 4.684 0 0 0 1.049 3.969l.009.01 7.958 9.485a.518.518 0 0 0 .79 0l7.968-9.495a4.688 4.688 0 0 0 1.049-3.965 4.803 4.803 0 0 0-3.931-3.794 4.74 4.74 0 0 0-4.023 1.256l-.008.008a2.123 2.123 0 0 1-2.9 0l-.007-.007a4.757 4.757 0 0 0-2.214-1.194z"
-      ></path>
-    </svg>
-  </button>
-  <button class="bg-transparent border-0 d-md-none">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-three-dots-vertical"
-      viewBox="0 0 16 16"
-    >
-      <path
-        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-      />
-    </svg>
-  </button>
-</div>
-<div class="d-none d-md-block col-1">${duration}</div>
-<div class="col-1">
-  <button class="d-none d-md-block bg-transparent border-0">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-three-dots"
-      viewBox="0 0 16 16"
-    >
-      <path
-        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
-      />
-    </svg>
-  </button>
-</div>
-</div>
-`;
+</div>`;
+
+  tpl.content.querySelector(".track_play_btn").addEventListener("click", (e) => {
+    player.playToggle(parseInt(e.target.dataset.track));
+  });
+  return tpl.content;
+};
 
 const trackAlbumTpl = (num, title, artist, artistId, duration, filepath) => `
 <div class="track_play row d-flex align-items-center py-2 riga border-bottom border-secondary border-opacity-10"  data-filepath="${filepath}">

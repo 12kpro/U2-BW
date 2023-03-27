@@ -792,6 +792,7 @@
       mainCtn.addEventListener("scroll", (e) => {
         const navbar = mainCtn.querySelector(".navbar");
         const navPlayBtn = mainCtn.querySelector("#nav_play_btn");
+        console.log(e.target.scrollTop);
         if (e.target.scrollTop > 0) {
           navPlayBtn.classList.remove("invisible");
           navPlayBtn.classList.add("visible");

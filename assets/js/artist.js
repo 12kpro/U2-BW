@@ -22,15 +22,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   artistRank.innerText = artistResults.nb_fan;
   const trackList = await resp(artistResults.tracklist);
-
+  let player = new AudioControls(trackList.data);
   for (const [i, track] of trackList.data.entries()) {
     console.log(track);
-    trackListCnt.insertAdjacentHTML(
-      "beforeend",
-      trackTpl(i + 1, track.album.cover, track.title_short, track.rank, toHHMM(track.duration), track.preview)
+    trackListCnt.append(
+      trackTpl(player, i + 1, track.album.cover, track.title_short, track.rank, toHHMM(track.duration), track.preview)
     );
   }
-  let player = new AudioControls(trackList.data);
 
   const albumCnt = document.getElementById("artist_album");
   const suggestedCnt = document.getElementById("artist_suggested");

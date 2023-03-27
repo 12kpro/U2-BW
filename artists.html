@@ -129,20 +129,28 @@
                     </li>
                     <li id="nav_play_btn" class="nav-item d-flex flex-row align-items-center invisible">
                       <a
-                        class="nav-link btn-nav-play border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3 mx-3"
+                        class="nav-link btn-nav-play btn_play border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3 mx-3"
                         href="#"
                       >
-                        <svg
-                          role="img"
-                          height="25"
-                          width="25"
-                          aria-hidden="true"
-                          viewBox="0 0 16 16"
-                          data-encore-id="icon"
-                        >
-                          <path
-                            d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                          ></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25">
+                          <defs>
+                            <symbol id="play" viewBox="0 0 16 16">
+                              <path
+                                d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                              ></path>
+                            </symbol>
+                            <symbol id="pause" viewBox="0 0 16 16">
+                              <path
+                                d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
+                              ></path>
+                            </symbol>
+                            <symbol id="loader" viewBox="0 0 16 16">
+                              <path
+                                d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                              ></path>
+                            </symbol>
+                          </defs>
+                          <use href="#play"></use>
                         </svg>
                       </a>
                       <span class="fw-bold fs-5 mx-2 text-light">ALBUM</span>
@@ -227,19 +235,27 @@
                   <div class="col mt-4">
                     <div class="play d-flex justify-content-center justify-content-md-start align-items-center">
                       <button
-                        class="border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3 mx-3"
+                        class="btn-nav-play btn_play border-0 bg-success text-black rounded-circle d-flex justify-content-center align-items-center p-3 mx-3"
                       >
-                        <svg
-                          role="img"
-                          height="25"
-                          width="25"
-                          aria-hidden="true"
-                          viewBox="0 0 16 16"
-                          data-encore-id="icon"
-                        >
-                          <path
-                            d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                          ></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25">
+                          <defs>
+                            <symbol id="play" viewBox="0 0 16 16">
+                              <path
+                                d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                              ></path>
+                            </symbol>
+                            <symbol id="pause" viewBox="0 0 16 16">
+                              <path
+                                d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
+                              ></path>
+                            </symbol>
+                            <symbol id="loader" viewBox="0 0 16 16">
+                              <path
+                                d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                              ></path>
+                            </symbol>
+                          </defs>
+                          <use href="#play"></use>
                         </svg>
                       </button>
                       <button
@@ -275,7 +291,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row mb-4">
                   <div id="track_list" class="col-12 col-xl-7">
                     <div class="row">
                       <div class="col-12">
@@ -296,10 +312,12 @@
                     </div>
                   </div>
                 </div>
-                <div>
-                  <button class="d-none d-lg-block bg-transparent border-0 text-light fs-6 mx-3 p-2">
-                    VISUALIZZA ALTRO
-                  </button>
+                <div class="row mb-4">
+                  <div class="col-12 col-md-10">
+                    <button class="d-none d-lg-block bg-transparent border-0 text-light fs-6 p-2 ps-0">
+                      VISUALIZZA ALTRO
+                    </button>
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-12 col-md-10">
@@ -641,7 +659,7 @@
                         ></path>
                       </svg>
                     </button>
-                    <button id="forward" class="border-0 bg-transparent" disabled>
+                    <button id="backward" class="border-0 bg-transparent" disabled>
                       <svg
                         role="img"
                         height="16"
@@ -682,7 +700,7 @@
                     </svg>
                   </button>
                   <div class="d-flex gap-2">
-                    <button id="backward" class="border-0 bg-transparent" disabled>
+                    <button id="forward" class="border-0 bg-transparent" disabled>
                       <svg
                         role="img"
                         height="16"
@@ -717,19 +735,19 @@
                   <div class="current-track__progress__start xsmall pe-2">00:00</div>
                   <input class="flex-shrink-0 flex-grow-1" type="range" value="0" disabled />
                   <!--<div class="flex-shrink-0 flex-grow-1">
+                  
+                  <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Info example"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
                     
-                    <div
-                      class="progress"
-                      role="progressbar"
-                      aria-label="Info example"
-                      aria-valuenow="50"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    >
-                      
-                      <div class="progress-bar bg-white" style="width: 0%"></div>
-                      
-                  </div>-->
+                    <div class="progress-bar bg-white" style="width: 0%"></div>
+                    
+                </div>-->
                   <div class="current-track__progress__finish xsmall ps-2">--:--</div>
                 </div>
               </div>
@@ -810,16 +828,20 @@
       mainCtn.addEventListener("scroll", (e) => {
         const navbar = mainCtn.querySelector(".navbar");
         const navPlayBtn = mainCtn.querySelector("#nav_play_btn");
-        if (e.target.scrollTop > 0) {
-          navPlayBtn.classList.remove("invisible");
-          navPlayBtn.classList.add("visible");
+        console.log(e.target.scrollTop);
+        if (e.target.scrollTop > 50) {
           navbar.classList.add("bg-dark");
           navbar.classList.remove("bg-transparent");
         } else {
-          navPlayBtn.classList.remove("visible");
-          navPlayBtn.classList.add("invisible");
           navbar.classList.add("bg-transparent");
           navbar.classList.remove("bg-dark");
+        }
+        if (e.target.scrollTop > 300) {
+          navPlayBtn.classList.remove("invisible");
+          navPlayBtn.classList.add("visible");
+        } else {
+          navPlayBtn.classList.remove("visible");
+          navPlayBtn.classList.add("invisible");
         }
       });
     </script>
